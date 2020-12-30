@@ -1,7 +1,7 @@
-from public import base_page
+from public import base
 
 
-class element_action(base_page):
+class element_action(base):
 
     #操作id元素
     def operation_id(self):

@@ -1,2 +1,2 @@
-from public.base_page import driver
+from public.base import driver
 
