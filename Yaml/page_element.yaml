@@ -1,0 +1,3 @@
+login:
+  username_password: 'el-input__inner'
+  click_logon: 'el-button,login-btn,el-button--primary'
