@@ -7,7 +7,7 @@ from public.base import driver
 
 class home_action(Element):
 
-    #首页只需要判断页面是否与本地图片一致
+    #获取首页图片
     def compare_image(self):
         time.sleep(9)
         self.get_image()

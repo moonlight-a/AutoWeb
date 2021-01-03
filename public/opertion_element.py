@@ -2,6 +2,11 @@
 #封装浏览器操作方法
 import os
 import datetime
+import time
+from selenium.webdriver.common.alert import Alert
+from selenium.webdriver.support import expected_conditions
+from selenium.webdriver.support.wait import WebDriverWait
+
 
 class Element():
 
@@ -33,7 +38,13 @@ class Element():
 
 
     def get_alter_text(self):
-        return self.driver.switch_to_alert().text
+            #self.driver.find_element_by_id('id').click()
+            alt = Alert(self.driver)
+            time.sleep(1)
+            print(alt.text)
+            #alter_text = self.driver.switch_to.alert
+
+
 
 
     def get_image(self):
@@ -41,11 +52,11 @@ class Element():
         current_time = datetime.datetime.now()
         time_str = datetime.datetime.strftime(current_time, '%Y-%m-%d_%H-%M-%S')
         image_file = path + '//Picture//' + time_str + '.png'
-        print(image_file)
+
         try:
 
-            aa = self.driver.get_screenshot_as_file(image_file)
-            print('chengg',aa)
+            self.driver.get_screenshot_as_file(image_file)
+
         except BaseException as e:
             print(e)
 
