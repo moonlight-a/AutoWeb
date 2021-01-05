@@ -5,7 +5,7 @@ import datetime
 import time
 
 import yaml
-
+from selenium.webdriver.support.select import Select
 PATH = os.path.dirname(os.path.dirname(__file__))
 open_data = open(PATH + '//Yaml//page_element.yaml','r',encoding='utf-8')
 read_data = yaml.load(open_data)
@@ -73,13 +73,16 @@ class Element():
 #操作下拉框
     def get_select_data(self):
         list =[]
-        aa = self.find_element_class(read_data.get('select_element'))
-        aa.click()
-        aavalue = self.find_element_class(read_data.get('select_value_element'))
-        print(aavalue.text)
-        for i in range(len(aavalue)):
-            print(list.append(aavalue[i].text))
-        print(list)
+        #点击下拉康
+        self.find_element_class(read_data.get('select_element')).click()
+        time.sleep(1)
+        aa = self.find_elements_class(read_data.get('select_value_element'))
+
+        for i in range(len(aa)):
+           list.append( aa[i].text)
+        print(list,'2222222222')
+
+
 
 
 
