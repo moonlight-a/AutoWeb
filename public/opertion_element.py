@@ -7,17 +7,14 @@ from selenium.webdriver.common.alert import Alert
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
 
+from public import base
+
 
 class Element():
 
-    def __init__(self,driver,url):
+    def __init__(self,driver):
         self.driver = driver
-        self.url = url
-        self.open()
 
-    def open(self):
-        url = self.url
-        self.driver.get(url)
 
     def find_element_class(self,loc):
 
@@ -62,8 +59,8 @@ class Element():
 
 
 
-# if __name__ == '__main__':
+if __name__ == '__main__':
 
-    # e = Element
-    # w = e.find_element_class('el-input__inner')
-    # print(w)
+    e = Element(base.driver())
+    w = e.find_element_class('el-input__inner')
+    print(w)
