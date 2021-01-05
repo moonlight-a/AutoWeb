@@ -1,5 +1,12 @@
+
+##公共元素
 alert_element: 'el-message__content'
 tips_element: 'el-form-item__error'
+select_element: 'el-select__caret,el-input__icon,el-icon-arrow-up'
+select_value_element: 'el-scrollbar__view,el-select-dropdown__list'
+
+
 login:
   username_password: 'el-input__inner'
   click_logon: 'el-button,login-btn,el-button--primary'
+

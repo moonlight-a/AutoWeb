@@ -36,23 +36,19 @@ class Element():
     def send_keys(self,value):
         return  self.driver.send_keys(value)
 
-
+#获取alert弹窗提示语
     def get_alter_text(self):
 
         time.sleep(1)
         alert_text  = self.find_element_class(read_data.get('alert_element'))
 
-
-
         return alert_text.text
-
+#获取tips提示语
     def get_tips_error(self):
         #由于文本框存在多个值需将错误提示语封装到list
         list_error = []
         time.sleep(1)
         error_text = self.find_elements_class(read_data.get('tips_element'))
-
-        print(error_text,'22222222222222222222222222')
         if len(error_text) > 1:
             for text in range(len(error_text)):
                 list_error.append(error_text[text].text)
@@ -60,7 +56,7 @@ class Element():
         else:
             return error_text[0].text
 
-
+#截图操作
     def get_image(self):
         path = os.path.dirname(os.path.dirname(__file__))
         current_time = datetime.datetime.now()
@@ -73,6 +69,17 @@ class Element():
 
         except BaseException as e:
             print(e)
+
+#操作下拉框
+    def get_select_data(self):
+        list =[]
+        aa = self.find_element_class(read_data.get('select_element'))
+        aa.click()
+        aavalue = self.find_element_class(read_data.get('select_value_element'))
+        print(aavalue.text)
+        for i in range(len(aavalue)):
+            print(list.append(aavalue[i].text))
+        print(list)
 
 
 

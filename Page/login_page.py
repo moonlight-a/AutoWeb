@@ -22,25 +22,24 @@ class login_action(Element):
 
         self.find_element_class(login_data.get('click_logon')).click()
 
+        time.sleep(15)
+        self.get_select_data()
+
         #判断usernme或者password是否有值，决定调用alert还是tips_error
 
-
-        if kwargs.get('username') ==' '  or  kwargs.get('password') == ' ':
-            print(self.get_tips_error())
-
-        elif  kwargs.get('username') !=''  and kwargs.get('password') != '':
-            print(self.get_alter_text())
-        else:
-            print(self.get_tips_error())
-
-
-        # print(self.get_tips_error())
+        # if kwargs.get('username') ==' '  or  kwargs.get('password') == ' ':
+        #     print(self.get_tips_error())
         #
-        #
-        # print(self.get_alter_text())
+        # elif  kwargs.get('username') !=''  and kwargs.get('password') != '':
+        #     print(self.get_alter_text())
+        # else:
+        #     print(self.get_tips_error())
+
+
+
 if __name__ == '__main__':
 
 
     ll = login_action(driver())
     # 'username'='lijie7','password'='123456789'
-    ll.log_on(username= ' ',password = ' ')
+    ll.log_on(username= 'lijie7',password = '12345678')
