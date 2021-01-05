@@ -1,3 +1,5 @@
+alert_element: 'el-message__content'
+tips_element: 'el-form-item__error'
 login:
   username_password: 'el-input__inner'
   click_logon: 'el-button,login-btn,el-button--primary'

@@ -12,12 +12,12 @@ test_data_path = PATH + '//YAML//' + 'test_data.yaml'
 @ddt.ddt
 class run_main(unittest.TestCase):
     def setUp(self) -> None:
-        self.logon = login_action(driver())
+        self.login_action = login_action(driver())
     @ddt.file_data(test_data_path)
 
     def test_login_001(self,**kwargs):
 
-        self.logon.log_on(**kwargs)
+        self.login_action.log_on(**kwargs)
 
 
 if __name__ == '__main__':

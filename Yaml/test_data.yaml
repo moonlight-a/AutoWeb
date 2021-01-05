@@ -1,7 +1,58 @@
-login1:
-  username: '123'
-  password: '456'
+login1-正向:
+  username: 'lijie7'
+  password: '12345678'
 
-login2:
-  username: '1234'
-  password: '4567'
+login2-登录名为空:
+  username: ''
+  password: '12345678'
+
+login3-密码为空:
+  username: 'lijie7'
+  password: ''
+
+login4-错误用户名+密码:
+  username: 'lijie71'
+  password: '1'
+
+
+login5-输入空格:
+  username: ' '
+  password: ' '
+
+
+login6-用户名及密码为空:
+  username: ''
+  password: ''
+
+
+
+login7--用户名超长字符:
+  username: 'lijie799999999999999999999992'
+  password: '12345678'
+
+
+
+login8-密码超长字符:
+  username: 'lijie7'
+  password: '1234567888888888888888888888888'
+
+
+login9-用户名异常字符:
+  username: '测试'
+  password: '12345678'
+
+
+login10-密码异常字符:
+  username: 'lijie7'
+  password: '测试'
+
+
+
+
+
+
+
+
+
+
+
