@@ -22,8 +22,9 @@ class login_action(Element):
 
         self.find_element_class(login_data.get('click_logon')).click()
 
-        time.sleep(15)
-        self.get_select_data()
+        time.sleep(2)
+
+
 
         #判断usernme或者password是否有值，决定调用alert还是tips_error
 

@@ -4,7 +4,10 @@ alert_element: 'el-message__content'
 tips_element: 'el-form-item__error'
 select_element: 'el-select__caret,el-input__icon,el-icon-arrow-up'
 select_value_element: 'el-select-dropdown__item'
-
+menu_tree: 'el-submenu__title'
+menu_tree_value: 'el-menu-item-group'
+operation_button: 'el-button,el-button--custom-primary'
+deleter_button: 'el-button,el-button--danger is-plain'
 
 login:
   username_password: 'el-input__inner'

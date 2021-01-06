@@ -57,11 +57,11 @@ class Element():
             return error_text[0].text
 
 #截图操作
-    def get_image(self):
+    def get_image(self,pagename):
         path = os.path.dirname(os.path.dirname(__file__))
         current_time = datetime.datetime.now()
         time_str = datetime.datetime.strftime(current_time, '%Y-%m-%d_%H-%M-%S')
-        image_file = path + '//Picture//' + time_str + '.png'
+        image_file = path + '//Picture//'  + pagename + '_' +time_str + '.png'
 
         try:
 
@@ -70,22 +70,91 @@ class Element():
         except BaseException as e:
             print(e)
 
-#操作下拉框
+
+
+#操作下拉框获取下拉框中值
     def get_select_data(self):
-        list =[]
+        select_list =[]
         #点击下拉康
         self.find_element_class(read_data.get('select_element')).click()
         time.sleep(1)
-        aa = self.find_elements_class(read_data.get('select_value_element'))
+        select_value = self.find_elements_class(read_data.get('select_value_element'))
 
-        for i in range(len(aa)):
-           list.append( aa[i].text)
-        print(list,'2222222222')
+        for i in range(len(select_value)):
+           select_list.append( select_value[i].text)
+        return list
+
+#选中下拉框中的值
+    def select_value(self):
+        self.find_element_class(read_data.get('select_element')).click()
+        time.sleep(1)
+        select_value = self.find_elements_class(read_data.get('select_value_element'))[1]
+        select_value.click()
+
+        return None
+
+#获取左侧菜单栏数据
+    def get_menu_tree(self):
+
+        tree_data = self.find_elements_class(read_data.get('menu_tree'))
 
 
+        return tree_data
+
+#操作数菜单的下拉按钮并获取子级数据
+    def tree_button_value(self):
+        #将父级节点做为字典key，子级数据以列表形式进行存储，示例：‘系统管理’：[1,2,3]
+        dict= {}
+        child_tree = read_data.get(('menu_tree_value'))
+        for menu_i in range(len(self.get_menu_tree())):
+            self.get_menu_tree()[menu_i].click()
+
+            child_tree_data = self.find_elements_class(child_tree)
+
+            child_list = []
+            for child_i in range(len(child_tree_data)):
+
+                if child_tree_data[child_i].text !='':
+                    child_list.append(child_tree_data[child_i].text)
+
+            dict[self.get_menu_tree()[menu_i].text] = child_list
+        return dict
+
+#操作数菜单的下拉按钮并获取子级元素
+    def tree_button_element(self):
+        #将父级节点做为字典key，子级数据以列表形式进行存储，示例：‘系统管理’：[1,2,3]
+        dict= {}
+        child_tree = read_data.get(('menu_tree_value'))
+        for menu_i in range(len(self.get_menu_tree())):
+            self.get_menu_tree()[menu_i].click()
+
+            child_tree_data = self.find_elements_class(child_tree)
+
+            child_list = []
+            time.sleep(2)
+            for child_i in range(len(child_tree_data)):
+
+                if child_tree_data[child_i].text !='':
+                    child_list.append(child_tree_data[child_i])
+
+            dict[self.get_menu_tree()[menu_i].text] = child_list
+        return dict
+
+#操作页面按钮(新增、查询按钮元素相同）
+    def operation_button(self):
+        button_list = self.find_elements_class(read_data.get('operation_button'))
+        for i in range(len(button_list)):
+            print(button_list[i].text)
 
 
+        pass
 
+
+#操作页面删除按钮
+    def operation(self):
+        pass
+
+#获取列表数据区，列表title值
 if __name__ == '__main__':
 
     e = Element(base.driver())
