@@ -1,13 +1,31 @@
 
-##公共元素
+#alert弹窗
 alert_element: 'el-message__content'
+#Tips元素
 tips_element: 'el-form-item__error'
+#下拉框元素
 select_element: 'el-select__caret,el-input__icon,el-icon-arrow-up'
+#下拉框值元素
 select_value_element: 'el-select-dropdown__item'
-menu_tree: 'el-submenu__title'
-menu_tree_value: 'el-menu-item-group'
-operation_button: 'el-button,el-button--custom-primary'
-deleter_button: 'el-button,el-button--danger is-plain'
+#菜单树元素
+menu_tree_element: 'el-submenu__title'
+#菜单树值元素
+menu_tree_value_element: 'el-menu-item-group'
+#页面操作按钮元素
+operation_button_element: 'el-button,el-button--custom-primary'
+#页面删除按钮
+deleter_button_element: 'el-button,el-button--danger is-plain'
+#查询条件字段值名称
+query_value_element: 'el-form-item__label'
+#页面文本框
+page_input_text_element: 'el-input__inner'
+#页面数据条目总数
+query_result_count_element: 'el-pagination__total'
+#富文本框
+rich_text_box_element: 'el-textarea__inner'
+
+
+
 
 login:
   username_password: 'el-input__inner'

@@ -10,7 +10,7 @@ class home_action(Element):
     #获取首页图片
     def compare_image(self):
         time.sleep(9)
-        self.get_image()
+        self.get_image('首页')
 
 
 

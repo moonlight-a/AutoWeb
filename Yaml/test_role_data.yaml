@@ -1,0 +1,9 @@
+query1_正向:
+  query_value: '测试'
+
+query2_不存在的数据:
+  query_value: '奥德赛'
+
+
+add1_正向:
+  add_value: '测试'

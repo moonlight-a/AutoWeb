@@ -47,12 +47,13 @@ class Element():
     def get_tips_error(self):
         #由于文本框存在多个值需将错误提示语封装到list
         list_error = []
-        time.sleep(1)
+
         error_text = self.find_elements_class(read_data.get('tips_element'))
+
         if len(error_text) > 1:
             for text in range(len(error_text)):
                 list_error.append(error_text[text].text)
-            return set(list_error)
+            return list_error
         else:
             return error_text[0].text
 
@@ -96,7 +97,7 @@ class Element():
 #获取左侧菜单栏数据
     def get_menu_tree(self):
 
-        tree_data = self.find_elements_class(read_data.get('menu_tree'))
+        tree_data = self.find_elements_class(read_data.get('menu_tree_element'))
 
 
         return tree_data
@@ -105,7 +106,7 @@ class Element():
     def tree_button_value(self):
         #将父级节点做为字典key，子级数据以列表形式进行存储，示例：‘系统管理’：[1,2,3]
         dict= {}
-        child_tree = read_data.get(('menu_tree_value'))
+        child_tree = read_data.get(('menu_tree_value_element'))
         for menu_i in range(len(self.get_menu_tree())):
             self.get_menu_tree()[menu_i].click()
 
@@ -124,7 +125,7 @@ class Element():
     def tree_button_element(self):
         #将父级节点做为字典key，子级数据以列表形式进行存储，示例：‘系统管理’：[1,2,3]
         dict= {}
-        child_tree = read_data.get(('menu_tree_value'))
+        child_tree = read_data.get(('menu_tree_value_element'))
         for menu_i in range(len(self.get_menu_tree())):
             self.get_menu_tree()[menu_i].click()
 
@@ -140,19 +141,38 @@ class Element():
             dict[self.get_menu_tree()[menu_i].text] = child_list
         return dict
 
-#操作页面按钮(新增、查询按钮元素相同）
+#获取页面操作按钮对应的元素，返回数据类型：‘按钮名称’:'元素名称'
     def operation_button(self):
-        button_list = self.find_elements_class(read_data.get('operation_button'))
+        dict ={}
+        button_list = self.find_elements_class(read_data.get('operation_button_element'))
         for i in range(len(button_list)):
-            print(button_list[i].text)
+            dict[button_list[i].text] = button_list[i]
+        return dict
+#获取查询结果页面返回的数量值
+    def get_query_data_total(self):
+        total = self.find_element_class(read_data.get('query_result_count'))
+        total_value = total.text
+        str_list = total_value.split(' ')
+        int_value = str_list[1]
+        return int_value
 
-
-        pass
+# 操作复选框按钮
+    def operation_checkbox(self):
+            pass
 
 
 #操作页面删除按钮
     def operation(self):
         pass
+
+#获取页面查询条件字段值
+    def get_query_value(self):
+        list =[]
+        query_list = self.find_elements_class(read_data.get('query_value_element'))
+        for query_value in range(len(query_list)):
+            list.append(query_list[query_value].text)
+
+        return list
 
 #获取列表数据区，列表title值
 if __name__ == '__main__':

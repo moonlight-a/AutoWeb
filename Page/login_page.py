@@ -14,6 +14,9 @@ login_data = data_load.get('login')
 class login_action(Element):
 
     def log_on(self,**kwargs):
+        #进入页面后先截屏
+        self.get_image('登录页')
+
         user_mess = self.find_elements_class(login_data.get('username_password'))
         i = 0
 
