@@ -1,8 +1,9 @@
 import os
+import random
 import time
 
 import yaml
-
+from Tools.sql_tools import connect_sql
 from Page.login_page import login_action
 from public.base import driver
 PATH = os.path.dirname(os.path.dirname(__file__))
@@ -57,12 +58,17 @@ class page_one(login_action):
         self.get_image('新增角色')
         return None
 
-
+#按照页面字段名称进行传值
     def operation_page_add(self,**kwargs):
-        add_filed = self.find_elements_class(element_load.get('page_input_text_element'))
-        for i in range(len(add_filed)):
-            add_filed[i].send_keys(kwargs.get('role_name'))
+        add_filed_text = self.find_elements_class(element_load.get('page_input_text_element'))
+        for i in range(len(add_filed_text)):
+            add_filed_text[i].send_keys(kwargs.get('role_name'))
 
+        add_filed_rich_text = self.find_elements_class(element_load.get('rich_text_box_element'))
+        add_filed_rich_text[0].send_keys(kwargs.get('rich_text'))
+
+        check_box_value = self.operation_checkbox()
+        check_box_value[random.randint(0,len(check_box_value))].click()
         self.get_page_button_element().get('提交').click()
         time.sleep(2)
 
@@ -76,6 +82,9 @@ class page_one(login_action):
         else:
             print(self.get_tips_error())
 
+#操作页面删除按钮，先获取页面总数据条目，删除后在获取总条目判断数据是否被删除
+    def operation_delete(self):
+        connect_sql().single_form_data('t_role')
 
 
 
@@ -92,4 +101,4 @@ if __name__ == '__main__':
     time.sleep(3)
     ll.operation_page_add_screen()
     time.sleep(3)
-    ll.operation_page_add(role_name = '')
+    ll.operation_delete()

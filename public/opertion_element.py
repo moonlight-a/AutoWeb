@@ -158,7 +158,11 @@ class Element():
 
 # 操作复选框按钮
     def operation_checkbox(self):
-            pass
+        check_box = self.find_elements_class(read_data.get('check_box_element'))
+        check_box_list = [check_box[i] for i in range(len(check_box))]
+
+        return check_box_list
+        pass
 
 
 #操作页面删除按钮
@@ -174,7 +178,6 @@ class Element():
 
         return list
 
-#获取列表数据区，列表title值
 if __name__ == '__main__':
 
     e = Element(base.driver())

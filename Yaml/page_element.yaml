@@ -24,7 +24,8 @@ query_result_count_element: 'el-pagination__total'
 #富文本框
 rich_text_box_element: 'el-textarea__inner'
 
-
+#复选框元素
+check_box_element: 'el-checkbox__inner'
 
 
 login:
