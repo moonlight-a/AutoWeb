@@ -14,14 +14,14 @@ class connect_sql():
         self.cursor = self.sql_connect.cursor()
 
     #根据条件查询数据
-    def signle_form(self,form_name,field_name,value):
+    def signle_form_sql(self,form_name,field_name,value):
         sql = "select * from %s where %s like  '%%%s%%'"%(form_name,field_name,value)
 
         reseult_sql = self.cursor.execute(sql)
         return reseult_sql
 
     #查询单个表当前的总数据
-    def single_form_data(self,form_name):
+    def single_form_data_sql(self,form_name):
         sql = "select * from %s "%(form_name)
 
         result_sql = self.cursor.execute(sql)
@@ -29,7 +29,7 @@ class connect_sql():
         return result_sql
 
     #根据左连接查询数据
-    def left_join(self,tableA,tableB,value):
+    def left_join_sql(self,tableA,tableB,value):
         sql = "select %s from %s where left join %s on %s.%s =  %s.%s"%(value,tableA,tableB,tableA,value,tableB,value)
 
         result_sql = self.cursor.execute(sql)
@@ -37,18 +37,25 @@ class connect_sql():
         return result_sql
 
     #对表格插入数据
-    def insert_value(self,table,*args):
+    def insert_value_sql(self,table,*args):
         
-        sql = "insert into %s VALUES()"
+        sql = "insert into %s VALUES%s"%(table,args)
+        result_sql = self.cursor.execute(sql)
+        return result_sql
+
+    #修改表格内的数据
+    def updata_sql(self):
+        sql = "update %s set = %s  where %s"
+
     #关闭数据库连接
     def close(self):
         self.cursor.close()
         self.sql_connect.close()
 
-cc = connect_sql()
-
-# a = cc.single_form_data(form_name='t_role',field_name ='name',value ='测')
-a = cc.left_join(tableA= 'A',tableB='B',value='C')
-cc.close()
-
-print(a)
+# cc = connect_sql()
+#
+# # a = cc.single_form_data(form_name='t_role',field_name ='name',value ='测')
+# a = cc.insert_value('A',1,2,3)
+# cc.close()
+#
+# print(a)

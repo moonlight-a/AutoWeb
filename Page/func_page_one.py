@@ -84,20 +84,20 @@ class page_one(login_action):
             print(self.get_tips_error())
 
     def delete_page_screen(self):
-        page_count = connect_sql.single_form_data('t_role')
-        print(page_count)
-
-        # self.get_page_button_element().get('删除').click()
-        # self.get_image('角色管理删除')
+        #获取页面当前总数据条目
+        page_count = connect_sql.single_form_data_sql('t_role')
+        self.get_page_button_element().get('删除').click()
+        self.get_image('角色管理删除')
+        return page_count
 #操作页面删除按钮，先获取页面总数据条目，删除后在获取总条目判断数据是否被删除
     def operation_delete(self):
-        #获取页面当前总数据条目
-            pass
-
-
-
-
-
+        current_count = self.delete_page_screen()
+        self.find_element_class(element_load.get('alert_delete_element')).click()
+        delete_count = connect_sql.single_form_data_sql('t_role')
+        if current_count == delete_count:
+            return True
+        else:
+            return False
 
 
 if __name__ == '__main__':
@@ -109,5 +109,7 @@ if __name__ == '__main__':
 
     ll.enter_page_one()
     time.sleep(3)
-
     ll.delete_page_screen()
+    aaa = ll.operation_delete()
+    print(aaa)
+    connect_sql.close()

@@ -27,6 +27,9 @@ rich_text_box_element: 'el-textarea__inner'
 #复选框元素
 check_box_element: 'el-checkbox__inner'
 
+#弹窗删除按钮
+alert_delete_element: 'el-button,el-button--default,el-button--small,el-button--primary,el-button--del'
+
 
 login:
   username_password: 'el-input__inner'
