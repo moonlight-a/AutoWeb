@@ -3,14 +3,15 @@ import random
 import time
 
 import yaml
-from Tools.sql_tools import connect_sql
+
 from Page.login_page import login_action
 from public.base import driver
+from Tools.sql_tools import connect_sql
 PATH = os.path.dirname(os.path.dirname(__file__))
 data_load = yaml.load(open(PATH + '//Yaml//test_role_data.yaml', 'r', encoding='utf-8'))
 query_data = data_load.get('add1_正向')
 element_load = yaml.load(open(PATH + '//Yaml//page_element.yaml','r',encoding='utf-8'))
-
+connect_sql = connect_sql()
 class page_one(login_action):
 
 
@@ -82,9 +83,18 @@ class page_one(login_action):
         else:
             print(self.get_tips_error())
 
+    def delete_page_screen(self):
+        page_count = connect_sql.single_form_data('t_role')
+        print(page_count)
+
+        # self.get_page_button_element().get('删除').click()
+        # self.get_image('角色管理删除')
 #操作页面删除按钮，先获取页面总数据条目，删除后在获取总条目判断数据是否被删除
     def operation_delete(self):
-        connect_sql().single_form_data('t_role')
+        #获取页面当前总数据条目
+            pass
+
+
 
 
 
@@ -99,6 +109,5 @@ if __name__ == '__main__':
 
     ll.enter_page_one()
     time.sleep(3)
-    ll.operation_page_add_screen()
-    time.sleep(3)
-    ll.operation_delete()
+
+    ll.delete_page_screen()
