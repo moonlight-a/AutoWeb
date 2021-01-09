@@ -4,15 +4,16 @@ import time
 
 import yaml
 
-from Page.login_page import login_action
 from public.base import driver
 from Tools.sql_tools import connect_sql
+from public.opertion_element import Element
+
 PATH = os.path.dirname(os.path.dirname(__file__))
 data_load = yaml.load(open(PATH + '//Yaml//test_role_data.yaml', 'r', encoding='utf-8'))
 query_data = data_load.get('add1_正向')
 element_load = yaml.load(open(PATH + '//Yaml//page_element.yaml','r',encoding='utf-8'))
 connect_sql = connect_sql()
-class page_one(login_action):
+class page_one(Element):
 
 
 
@@ -51,7 +52,10 @@ class page_one(login_action):
         query_element.click()
         time.sleep(2)
 
-        return self.get_query_data_total()
+        if self.get_query_data_total() == connect_sql.signle_form_sql(form_name='t_role',field_name='name',value=value):
+            return True
+        else:
+            return False
 
     def operation_page_add_screen(self):
         self.get_page_button_element().get('新增').click()

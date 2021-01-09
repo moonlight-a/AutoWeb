@@ -7,7 +7,7 @@ import time
 import yaml
 from selenium.webdriver.support.select import Select
 PATH = os.path.dirname(os.path.dirname(__file__))
-open_data = open(PATH + '//Yaml//page_element.yaml','r',encoding='utf-8')
+open_data = open(PATH + '//page_elements//page_element.yaml','r',encoding='utf-8')
 read_data = yaml.load(open_data)
 
 from public import base

@@ -35,7 +35,13 @@ class connect_sql():
         result_sql = self.cursor.execute(sql)
 
         return result_sql
+    #多条件查询
+    def many_condition_sql(self,table,*args):
 
+        sql = "select * from {0} where {1} = {2} and {3} = {4}".format(table,args[0],args[1],args[2],args[3])
+        return sql
+        # result_sql = self.cursor.execute(sql)
+        # return result_sql
     #对表格插入数据
     def insert_value_sql(self,table,*args):
         
@@ -52,10 +58,10 @@ class connect_sql():
         self.cursor.close()
         self.sql_connect.close()
 
-# cc = connect_sql()
-#
-# # a = cc.single_form_data(form_name='t_role',field_name ='name',value ='测')
-# a = cc.insert_value('A',1,2,3)
-# cc.close()
-#
-# print(a)
+cc = connect_sql()
+
+# a = cc.single_form_data(form_name='t_role',field_name ='name',value ='测')
+a = cc.many_condition_sql('A','name','测试','id','1234')
+cc.close()
+
+print(a)

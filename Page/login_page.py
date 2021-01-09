@@ -24,20 +24,17 @@ class login_action(Element):
         user_mess[i+1].send_keys(kwargs.get('password'))
 
         self.find_element_class(login_data.get('click_logon')).click()
-
         time.sleep(2)
-
-
 
         #判断usernme或者password是否有值，决定调用alert还是tips_error
 
-        # if kwargs.get('username') ==' '  or  kwargs.get('password') == ' ':
-        #     print(self.get_tips_error())
-        #
-        # elif  kwargs.get('username') !=''  and kwargs.get('password') != '':
-        #     print(self.get_alter_text())
-        # else:
-        #     print(self.get_tips_error())
+        if kwargs.get('username') ==' '  or  kwargs.get('password') == ' ':
+            print(self.get_tips_error())
+
+        elif  kwargs.get('username') !=''  and kwargs.get('password') != '':
+            print(self.get_alter_text())
+        else:
+            print(self.get_tips_error())
 
 
 

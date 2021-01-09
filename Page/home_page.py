@@ -16,6 +16,6 @@ class home_action(Element):
 
 
 if __name__ == '__main__':
-    hh = home_action(driver(),'http://39.101.216.196/sdr/#/login')
+    hh = home_action(driver())
 
     hh.compare_image()

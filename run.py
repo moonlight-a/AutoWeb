@@ -7,7 +7,7 @@ import ddt
 from Page.login_page import login_action
 from public.base import driver
 PATH = os.path.dirname(__file__)
-test_data_path = PATH + '//YAML//' + 'test_data_login.yaml'
+test_data_path = PATH + '//Test_data//' + 'test_data_login.yaml'
 
 @ddt.ddt
 class run_main(unittest.TestCase):
