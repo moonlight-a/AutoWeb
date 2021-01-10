@@ -1,19 +1,17 @@
-import os
-import random
-import time
+import os,random,time,yaml
 
-import yaml
-
+from Page.login_page import login_action
 from public.base import driver
 from Tools.sql_tools import connect_sql
 from public.opertion_element import Element
 
 PATH = os.path.dirname(os.path.dirname(__file__))
-data_load = yaml.load(open(PATH + '//Yaml//test_role_data.yaml', 'r', encoding='utf-8'))
+data_load = yaml.load(open(PATH + '//Test_data//test_role_data.yaml', 'r', encoding='utf-8'))
 query_data = data_load.get('add1_正向')
-element_load = yaml.load(open(PATH + '//Yaml//page_element.yaml','r',encoding='utf-8'))
+element_load = yaml.load(open(PATH + '//page_elements//page_element.yaml','r',encoding='utf-8'))
 connect_sql = connect_sql()
-class page_one(Element):
+
+class page_one(login_action):
 
 
 

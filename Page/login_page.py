@@ -6,7 +6,7 @@ import yaml
 from public.base import driver
 from public.opertion_element import Element
 PATH = os.path.dirname(os.path.dirname(__file__))
-data_load = yaml.load(open(PATH + '//Yaml//page_element.yaml','r',encoding='utf-8'))
+data_load = yaml.load(open(PATH + '//page_elements//page_element.yaml','r',encoding='utf-8'))
 login_data = data_load.get('login')
 
 
@@ -18,10 +18,11 @@ class login_action(Element):
         self.get_image('登录页')
 
         user_mess = self.find_elements_class(login_data.get('username_password'))
-        i = 0
+        print(user_mess,'3333333333333333222222222')
 
-        user_mess[i].send_keys(kwargs.get('username'))
-        user_mess[i+1].send_keys(kwargs.get('password'))
+
+        user_mess.send_keys(kwargs.get('username'))
+        user_mess.send_keys(kwargs.get('password'))
 
         self.find_element_class(login_data.get('click_logon')).click()
         time.sleep(2)

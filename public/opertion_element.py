@@ -3,9 +3,11 @@
 import os
 import datetime
 import time
-
 import yaml
-from selenium.webdriver.support.select import Select
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+
 PATH = os.path.dirname(os.path.dirname(__file__))
 open_data = open(PATH + '//page_elements//page_element.yaml','r',encoding='utf-8')
 read_data = yaml.load(open_data)
@@ -19,20 +21,33 @@ class Element():
         self.driver = driver
 
 
-    def find_element_class(self,loc):
+    def find_element_class(self,*loc):
+        element = WebDriverWait(self.driver,5,0.5).until(
+            EC.presence_of_element_located(By.CLASS_NAME,*loc))
 
-        return self.driver.find_element_by_class_name(loc)
+        return element
 
-    def find_elements_class(self,loc):
-        return self.driver.find_elements_by_class_name(loc)
+    def find_elements_class(self,*loc):
 
-    def find_element_by_id(self,loc):
+        print(*loc,'222222231')
+        element = WebDriverWait(self.driver, 5, 0.5).until(EC.presence_of_all_elements_located(*loc))
 
-        return self.driver.find_element_by_id(loc)
+        return element
 
-    def find_element_by_xpath(self,loc):
-        return self.driver.find_element_by_xpath(loc)
 
+
+    def find_element_by_id(self,*loc):
+
+        element = WebDriverWait(self.driver, 5, 0.5).until(
+            EC.presence_of_element_located(*loc))
+
+        return element
+
+    def find_element_by_xpath(self,*loc):
+        element = WebDriverWait(self.driver, 5, 0.5).until(
+            EC.presence_of_element_located(*loc))
+
+        return element
     def send_keys(self,value):
         return  self.driver.send_keys(value)
 
