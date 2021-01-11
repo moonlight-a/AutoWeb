@@ -1,6 +1,6 @@
 
 #alert弹窗
-alert_element: 'el-message__content'
+alert_element: 'ivu-message-custom-content,ivu-message-warning'
 #Tips元素
 tips_element: 'el-form-item__error'
 #下拉框元素
@@ -32,6 +32,6 @@ alert_delete_element: 'el-button,el-button--default,el-button--small,el-button--
 
 
 login:
-  username_password: 'el-input__inner'
-  click_logon: 'el-button,login-btn,el-button--primary'
+  username_password: 'ivu-input,ivu-input-default'
+  click_logon: 'login-btn,ivu-btn,ivu-btn-primary'
 

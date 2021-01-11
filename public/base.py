@@ -12,7 +12,7 @@ def driver():
     option = webdriver.ChromeOptions()
     option.add_experimental_option("detach", True)
     driver = webdriver.Chrome(chrome_options=option)
-    driver.implicitly_wait(5)
+    driver.implicitly_wait(3)
     driver.get(url_data.get('url'))
     return driver
 

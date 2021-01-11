@@ -29,8 +29,8 @@ class connect_sql():
         return result_sql
 
     #根据左连接查询数据
-    def left_join_sql(self,tableA,tableB,value):
-        sql = "select %s from %s where left join %s on %s.%s =  %s.%s"%(value,tableA,tableB,tableA,value,tableB,value)
+    def left_join_sql(self,tableA,tableB,condition):
+        sql = "select %s from %s left join %s on %s.%s =  %s.%s"%(condition,tableA,tableB,tableA,condition,tableB,condition)
 
         result_sql = self.cursor.execute(sql)
 
@@ -38,14 +38,14 @@ class connect_sql():
     #多条件查询
     def many_condition_sql(self,table,*args):
 
-        sql = "select * from {0} where {1} = {2} and {3} = {4}".format(table,args[0],args[1],args[2],args[3])
-        return sql
-        # result_sql = self.cursor.execute(sql)
-        # return result_sql
+        sql = "select * from {0} where {1} = '{2}' and {3} = {4}".format(table,args[0],args[1],args[2],args[3])
+
+        result_sql = self.cursor.execute(sql)
+        return result_sql
     #对表格插入数据
     def insert_value_sql(self,table,*args):
         
-        sql = "insert into %s VALUES%s"%(table,args)
+        sql = "insert into %s VALUES('%s')"%(table,args)
         result_sql = self.cursor.execute(sql)
         return result_sql
 
@@ -57,11 +57,12 @@ class connect_sql():
     def close(self):
         self.cursor.close()
         self.sql_connect.close()
+if __name__ == '__main__':
 
-cc = connect_sql()
+    cc = connect_sql()
 
-# a = cc.single_form_data(form_name='t_role',field_name ='name',value ='测')
-a = cc.many_condition_sql('A','name','测试','id','1234')
-cc.close()
+    # a = cc.single_form_data(form_name='t_role',field_name ='name',value ='测')
+    a = cc.left_join_sql( 't_role','t_role_resource','id')
+    cc.close()
 
-print(a)
+    print(a)

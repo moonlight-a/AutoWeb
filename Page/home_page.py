@@ -1,15 +1,15 @@
 import time
 
-from public.opertion_element import Element
+from Page.login_page import login_action
 
 from public.base import driver
 
 
-class home_action(Element):
+class home_action(login_action):
 
     #获取首页图片
     def compare_image(self):
-        time.sleep(9)
+        time.sleep(3)
         self.get_image('首页')
 
 

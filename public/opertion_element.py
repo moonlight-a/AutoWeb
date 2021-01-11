@@ -23,14 +23,14 @@ class Element():
 
     def find_element_class(self,*loc):
         element = WebDriverWait(self.driver,5,0.5).until(
-            EC.presence_of_element_located(By.CLASS_NAME,*loc))
+            EC.presence_of_element_located((By.CLASS_NAME,loc)))
 
         return element
 
     def find_elements_class(self,*loc):
 
-        print(*loc,'222222231')
-        element = WebDriverWait(self.driver, 5, 0.5).until(EC.presence_of_all_elements_located(*loc))
+
+        element = WebDriverWait(self.driver, 5, 0.5).until(EC.presence_of_all_elements_located((By.CLASS_NAME,loc)))
 
         return element
 
@@ -39,22 +39,24 @@ class Element():
     def find_element_by_id(self,*loc):
 
         element = WebDriverWait(self.driver, 5, 0.5).until(
-            EC.presence_of_element_located(*loc))
+            EC.presence_of_element_located((By.ID,loc)))
 
         return element
 
     def find_element_by_xpath(self,*loc):
         element = WebDriverWait(self.driver, 5, 0.5).until(
-            EC.presence_of_element_located(*loc))
+            EC.presence_of_element_located((By.XPATH,loc)))
 
         return element
+   #发送文字
     def send_keys(self,value):
+
+
         return  self.driver.send_keys(value)
 
 #获取alert弹窗提示语
     def get_alter_text(self):
 
-        time.sleep(1)
         alert_text  = self.find_element_class(read_data.get('alert_element'))
 
         return alert_text.text
@@ -62,7 +64,6 @@ class Element():
     def get_tips_error(self):
         #由于文本框存在多个值需将错误提示语封装到list
         list_error = []
-
         error_text = self.find_elements_class(read_data.get('tips_element'))
 
         if len(error_text) > 1:
@@ -71,6 +72,11 @@ class Element():
             return list_error
         else:
             return error_text[0].text
+#获取页面当前url
+    def get_currernt_url(self):
+
+
+        return self.driver.current_url
 
 #截图操作
     def get_image(self,pagename):
@@ -196,5 +202,5 @@ class Element():
 if __name__ == '__main__':
 
     e = Element(base.driver())
-    w = e.get_alter_text()
+    w = e.get_currernt_url()
     print(w)

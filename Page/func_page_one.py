@@ -79,12 +79,12 @@ class page_one(login_action):
 
         if kwargs.get('role_name')  == ' ':
             print(self.get_tips_error())
-
         elif kwargs.get('role_name') !='':
             print(self.get_alter_text())
         else:
             print(self.get_tips_error())
 
+#获取删除页面截图
     def delete_page_screen(self):
         #获取页面当前总数据条目
         page_count = connect_sql.single_form_data_sql('t_role')
