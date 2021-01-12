@@ -30,17 +30,18 @@ class login_action(Element):
         if curr_url != operation_url:
 
             pass
-        else:
-
-            #判断usernme或者password是否有值，决定调用alert还是tips_error
-
-            if kwargs.get('username') ==' '  or  kwargs.get('password') == ' ':
-                print(self.get_tips_error())
-
-            elif  kwargs.get('username') !=''  and kwargs.get('password') != '':
-                print(self.get_alter_text())
-            else:
-                print(self.get_tips_error())
+        # else:
+        #     time.sleep(1)
+        #
+        #     #判断usernme或者password是否有值，决定调用alert还是tips_error
+        #
+        #     if kwargs.get('username') ==' '  or  kwargs.get('password') == ' ':
+        #         print(self.get_tips_error())
+        #
+        #     elif  kwargs.get('username') !=''  and kwargs.get('password') != '':
+        #         print(self.get_alter_text())
+        #     else:
+        #         print(self.get_tips_error())
 
 
 

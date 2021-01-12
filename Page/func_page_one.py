@@ -18,7 +18,9 @@ class page_one(login_action):
     def enter_page_one(self):
         #先获取每个父级树菜单中对应的自己元素，在操作父级值
         child_element = self.tree_button_element()
+
         tree_data = self.get_menu_tree()
+
         tree_data[0].click()
         time.sleep(2)
         list_child = child_element.get('系统管理')
@@ -107,11 +109,11 @@ if __name__ == '__main__':
 
     ll = page_one(driver())
     # 'username'='lijie7','password'='123456789'
-    ll.log_on(username= 'lijie7',password = '12345678')
+    ll.log_on(username= 'monica',password = '123456')
 
     ll.enter_page_one()
-    time.sleep(3)
-    ll.delete_page_screen()
-    aaa = ll.operation_delete()
-    print(aaa)
-    connect_sql.close()
+    # time.sleep(3)
+    # ll.delete_page_screen()
+    # aaa = ll.operation_delete()
+    # print(aaa)
+    # connect_sql.close()

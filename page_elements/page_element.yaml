@@ -2,15 +2,15 @@
 #alert弹窗
 alert_element: 'ivu-message-custom-content,ivu-message-warning'
 #Tips元素
-tips_element: 'el-form-item__error'
+tips_element: 'ivu-icon ivu-icon-ios-arrow-down,ivu-menu-submenu-title-icon'
 #下拉框元素
 select_element: 'el-select__caret,el-input__icon,el-icon-arrow-up'
 #下拉框值元素
-select_value_element: 'el-select-dropdown__item'
-#菜单树元素
-menu_tree_element: 'el-submenu__title'
-#菜单树值元素
-menu_tree_value_element: 'el-menu-item-group'
+select_value_element: 'second-menu-item,ivu-menu-item,ivu-menu-item-active,ivu-menu-item-selected'
+#菜单树元素(单个父级节点class属性）
+menu_tree_element: 'ivu-menu-submenu-title'
+#菜单树值元素（单个子级节点class属性）
+menu_tree_value_element: 'second-menu-item,ivu-menu-item'
 #页面操作按钮元素
 operation_button_element: 'el-button,el-button--custom-primary'
 #页面删除按钮
