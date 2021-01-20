@@ -29,8 +29,8 @@ class Element():
 
     def find_elements_class(self,*loc):
 
-
-        element = WebDriverWait(self.driver, 5, 0.5).until(EC.presence_of_all_elements_located((By.CLASS_NAME,loc)))
+        print(loc,'loc')
+        element = WebDriverWait(self.driver,5,0.5).until(EC.presence_of_all_elements_located((By.CLASS_NAME,loc)))
 
         return element
 

@@ -1,34 +1,58 @@
-
+#=========公共元素===========#
 #alert弹窗
 alert_element: 'ivu-message-custom-content,ivu-message-warning'
 #Tips元素
 tips_element: 'ivu-icon ivu-icon-ios-arrow-down,ivu-menu-submenu-title-icon'
-#下拉框元素
-select_element: 'el-select__caret,el-input__icon,el-icon-arrow-up'
+
+#下拉框按钮元素
+select_element: 'ivu-icon,ivu-icon-ios-arrow-down,ivu-select-arrow'
 #下拉框值元素
-select_value_element: 'second-menu-item,ivu-menu-item,ivu-menu-item-active,ivu-menu-item-selected'
+select_value_element: 'ivu-select-dropdown,ivu-select-dropdown-transfer'
 #菜单树元素(单个父级节点class属性）
 menu_tree_element: 'ivu-menu-submenu-title'
 #菜单树值元素（单个子级节点class属性）
 menu_tree_value_element: 'second-menu-item,ivu-menu-item'
-#页面操作按钮元素
-operation_button_element: 'el-button,el-button--custom-primary'
-#页面删除按钮
-deleter_button_element: 'el-button,el-button--danger is-plain'
-#查询条件字段值名称
-query_value_element: 'el-form-item__label'
-#页面文本框
-page_input_text_element: 'el-input__inner'
-#页面数据条目总数
-query_result_count_element: 'el-pagination__total'
-#富文本框
-rich_text_box_element: 'el-textarea__inner'
-
 #复选框元素
-check_box_element: 'el-checkbox__inner'
+check_box_element: 'ivu-table-cell,ivu-table-cell-with-selection'
 
-#弹窗删除按钮
-alert_delete_element: 'el-button,el-button--default,el-button--small,el-button--primary,el-button--del'
+#查询条件-文本框
+page_input_text_element: 'ivu-input,ivu-input-default'
+#查询条件-清空按钮
+check_button_clean_element: 'btn-clear,ivu-btn,ivu-btn-default'
+#查询条件-查询按钮
+check_button_element: 'btn-search,ivu-btn,ivu-btn-default'
+#查询条件-高级查询按钮
+check_senior_button_element: 'btn-search ivu-btn ivu-btn-default'
+#查询条件-可输入值下拉框
+check_select_input_element: 'ivu-select-input'
+#查询条件-默认值下拉框
+check_select_defalut_element: 'ivu-select-selected-value'
+#查询条件-默认值下拉框值
+check_select_defalut_value_element: 'ivu-select-item,ivu-select-item-selected'
+
+#操作栏-新增/导入/下载导入模板按钮
+add_button_element: 'normal,green,ivu-btn,ivu-btn-default'
+#导入按钮class="normal green ivu-btn ivu-btn-default"
+#操作栏-更多按钮
+more_button_select_element: 'dialog,grey,ivu-btn,ivu-btn-default'
+#操作栏-更多按钮下拉框值
+more_button_select_value_element: '更多按钮为悬浮显示数据按钮，该数据获取方式待调研'
+
+#翻页总数据条目
+count_data_element: 'ivu-page-total'
+#=========公共元素===========#
+
+#===系统管理===#
+  #=组织架构=#
+add_organization: 'add-cata ivu-btn,ivu-btn-default'
+
+
+
+
+
+
+
+
 
 
 login:

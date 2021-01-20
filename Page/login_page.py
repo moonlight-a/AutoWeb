@@ -18,13 +18,14 @@ class login_action(Element):
         self.get_image('登录页')
         curr_url = self.get_currernt_url()
         user_mess = self.find_elements_class(login_data.get('username_password'))
+        print(user_mess,'333333333333333333333333')
         i =0
         while i < len(user_mess):
             user_mess[i].send_keys(kwargs.get('username'))
             user_mess[i+1].send_keys(kwargs.get('password'))
             i +=2
         self.find_element_class(login_data.get('click_logon')).click()
-
+        time.sleep(2)
         operation_url = self.get_currernt_url()
 
         if curr_url != operation_url:
@@ -50,4 +51,4 @@ if __name__ == '__main__':
 
     ll = login_action(driver())
     # 'username'='lijie7','password'='123456789'
-    ll.log_on(username= 'lijie7',password = '12345678')
+    ll.log_on(username= '15155972770',password = '123456')
