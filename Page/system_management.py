@@ -1,9 +1,7 @@
 import os,random,time,yaml
-
-from Page.login_page import login_action
 from public.base import driver
 from Tools.sql_tools import connect_sql
-from public.opertion_element import Element
+from public.enter_moudle import enter_page
 
 PATH = os.path.dirname(os.path.dirname(__file__))
 data_load = yaml.load(open(PATH + '//Test_data//test_role_data.yaml', 'r', encoding='utf-8'))
@@ -11,27 +9,16 @@ query_data = data_load.get('add1_正向')
 element_load = yaml.load(open(PATH + '//page_elements//page_element.yaml','r',encoding='utf-8'))
 connect_sql = connect_sql()
 
-class page_one(login_action):
-
-
-
-    def enter_page_one(self):
-        #先获取每个父级树菜单中对应的自己元素，在操作父级值
-        child_element = self.tree_button_element()
-
-        tree_data = self.get_menu_tree()
-
-        tree_data[0].click()
-        time.sleep(2)
-        list_child = child_element.get('系统管理')
-        list_child[0].click()
-
+class page_one(enter_page):
 
     def screen_page(self):
-        self.get_image('角色管理')
+        self.enter_moudle_name('系统管理')
+        time.sleep(2)
+        self.get_image('组织架构')
         return None
 
     def get_page_button_element(self):
+
         button_dict = self.operation_button()
         return button_dict
 
@@ -44,18 +31,23 @@ class page_one(login_action):
 
 #操作页面查询功能,通过查询条件获取查询结果条目，并进行判断
     def opeation_page_query(self,value):
+        '先操作高级查询按钮，展开所有查询条件'
 
+        time.sleep(1)
         query_text = self.find_element_class(element_load.get('page_input_text_element'))
-        query_element = self.get_page_button_element().get('查询')
+        query_element = self.get_page_button_element().get('姓名')
+
+
+        time.sleep(2)
         query_text.send_keys(value)
         time.sleep(2)
-        query_element.click()
-        time.sleep(2)
-
-        if self.get_query_data_total() == connect_sql.signle_form_sql(form_name='t_role',field_name='name',value=value):
-            return True
-        else:
-            return False
+        # query_element.click()
+        # time.sleep(2)
+        #
+        # if self.get_query_data_total() == connect_sql.signle_form_sql(form_name='t_role',field_name='name',value=value):
+        #     return True
+        # else:
+        #     return False
 
     def operation_page_add_screen(self):
         self.get_page_button_element().get('新增').click()
@@ -109,9 +101,13 @@ if __name__ == '__main__':
 
     ll = page_one(driver())
     # 'username'='lijie7','password'='123456789'
-    ll.log_on(username= '15155972770',password = '123456')
 
-    ll.enter_page_one()
+
+    ll.screen_page()
+
+    ll.get_page_button_element()
+
+
     # time.sleep(3)
     # ll.delete_page_screen()
     # aaa = ll.operation_delete()

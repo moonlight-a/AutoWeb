@@ -18,10 +18,11 @@ class login_action(Element):
         self.get_image('登录页')
         curr_url = self.get_currernt_url()
         user_mess = self.find_elements_class(login_data.get('username_password'))
-        print(user_mess,'333333333333333333333333')
+
         i =0
         while i < len(user_mess):
             user_mess[i].send_keys(kwargs.get('username'))
+            time.sleep(2)
             user_mess[i+1].send_keys(kwargs.get('password'))
             i +=2
         self.find_element_class(login_data.get('click_logon')).click()

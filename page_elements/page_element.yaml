@@ -15,14 +15,15 @@ menu_tree_value_element: 'second-menu-item,ivu-menu-item'
 #复选框元素
 check_box_element: 'ivu-table-cell,ivu-table-cell-with-selection'
 
+#查询条件-值
+operation_button_element: 'ivu-form-item'
 #查询条件-文本框
 page_input_text_element: 'ivu-input,ivu-input-default'
 #查询条件-清空按钮
 check_button_clean_element: 'btn-clear,ivu-btn,ivu-btn-default'
-#查询条件-查询按钮
-check_button_element: 'btn-search,ivu-btn,ivu-btn-default'
-#查询条件-高级查询按钮
-check_senior_button_element: 'btn-search ivu-btn ivu-btn-default'
+
+#查询条件-查询/高级查询按钮
+check_senior_button_element: 'btn-search,ivu-btn,ivu-btn-default'
 #查询条件-可输入值下拉框
 check_select_input_element: 'ivu-select-input'
 #查询条件-默认值下拉框

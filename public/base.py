@@ -14,6 +14,7 @@ def driver():
     driver = webdriver.Chrome(chrome_options=option)
     # driver.implicitly_wait(3)
     driver.get(url_data.get('url'))
+    driver.maximize_window()
     return driver
 
 

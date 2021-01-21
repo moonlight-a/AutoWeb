@@ -4,6 +4,7 @@ import os
 import datetime
 import time
 import yaml
+from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -29,7 +30,6 @@ class Element():
 
     def find_elements_class(self,*loc):
 
-        print(loc,'loc')
         element = WebDriverWait(self.driver,5,0.5).until(EC.presence_of_all_elements_located((By.CLASS_NAME,loc)))
 
         return element
@@ -48,7 +48,12 @@ class Element():
             EC.presence_of_element_located((By.XPATH,loc)))
 
         return element
-   #发送文字
+
+    def find_element_by_link_text(self,*value_text):
+        link_text_element = WebDriverWait(self.driver,5,0.5).until(EC.presence_of_element_located((By.LINK_TEXT,value_text)))
+        return link_text_element
+
+  #发送文字
     def send_keys(self,value):
 
 
@@ -165,9 +170,17 @@ class Element():
 #获取页面操作按钮对应的元素，返回数据类型：‘按钮名称’:'元素名称'
     def operation_button(self):
         dict ={}
+        aa = self.find_elements_class(read_data.get('check_senior_button_element'))
+        aa[0].click()
+        aa[1].click()
+        time.sleep(1)
         button_list = self.find_elements_class(read_data.get('operation_button_element'))
+
         for i in range(len(button_list)):
+
+
             dict[button_list[i].text] = button_list[i]
+        print(dict,'operation_button')
         return dict
 #获取查询结果页面返回的数量值
     def get_query_data_total(self):
@@ -198,7 +211,11 @@ class Element():
             list.append(query_list[query_value].text)
 
         return list
-
+#操作需要鼠标悬浮显示元素值
+    def mouse_action(self,value_text,operation_text):
+        ActionChains(self.driver).move_to_element(self.find_element_by_link_text(value_text)).perform()
+        time.sleep(2)
+        self.find_element_by_link_text(operation_text).click()
 if __name__ == '__main__':
 
     e = Element(base.driver())
