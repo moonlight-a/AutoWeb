@@ -12,35 +12,59 @@ connect_sql = connect_sql()
 class page_one(enter_page):
 
     def screen_page(self):
+
         self.enter_moudle_name('系统管理')
         time.sleep(2)
+
         self.get_image('组织架构')
         return None
 
-    def get_page_button_element(self):
-
-        button_dict = self.operation_button()
-        return button_dict
+    #操作高级查询按钮，展开所有查询条件并获取值，数据类型:{属性名：元素}
+    def get_page_senior_button_element(self):
+        check_data =self.operation_check_senior_button()
+        check_data.get('高级查询').click()
+        return None
 
 #获取页面查询条件字段值
     def get_page_query_value(self):
+        check_value_dict =self.operation_check_button_value()
 
-        self.get_query_value()
+        return check_value_dict
 
-        return None
+#操作页面查询字段
+    def opeation_page_query(self):
 
-#操作页面查询功能,通过查询条件获取查询结果条目，并进行判断
-    def opeation_page_query(self,value):
-        '先操作高级查询按钮，展开所有查询条件'
+        filter_name_data =[]
+        query_element = self.get_page_query_value().get('姓名')
+        query_element.click()
+        time.sleep(2)
+        select_value =self.find_elements_class(element_load.get('check_select_value_element'))
+        #元素返回的数据存在为空的，通过推导式进行过滤将不为空的进行返回
+        [filter_name_data.append(x) for x in select_value if x.text != '']
 
         time.sleep(1)
-        query_text = self.find_element_class(element_load.get('page_input_text_element'))
-        query_element = self.get_page_button_element().get('姓名')
+        filter_name_data[0].click()
+        query_work_id = self.get_page_query_value().get('登录ID')
+        query_work_id.click()
+        time.sleep(7)
+        query_work_id.send_keys('1234444')
+
+
+        query_login_id = self.get_page_query_value().get('工号')
+        time.sleep(1)
+        query_login_id.send_keys('12345')
+
+
+        query_telphone = self.get_page_query_value().get('手机号')
+        time.sleep(1)
+        query_telphone.send_keys('1515599774')
+        query_account_status = self.get_page_query_value().get('账号状态')
+
 
 
         time.sleep(2)
-        query_text.send_keys(value)
-        time.sleep(2)
+
+        # time.sleep(2)
         # query_element.click()
         # time.sleep(2)
         #
@@ -104,8 +128,10 @@ if __name__ == '__main__':
 
 
     ll.screen_page()
-
-    ll.get_page_button_element()
+    #
+    ll.get_page_senior_button_element()
+    ll.get_page_query_value()
+    ll.opeation_page_query()
 
 
     # time.sleep(3)

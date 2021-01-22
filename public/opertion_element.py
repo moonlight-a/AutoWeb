@@ -124,8 +124,6 @@ class Element():
     def get_menu_tree(self):
 
         tree_data = self.find_elements_class(read_data.get('menu_tree_element'))
-
-
         return tree_data
 
 #操作数菜单的下拉按钮并获取子级数据
@@ -165,23 +163,36 @@ class Element():
                     child_list.append(child_tree_data[child_i])
 
             dict[self.get_menu_tree()[menu_i].text] = child_list
-        return dict
 
-#获取页面操作按钮对应的元素，返回数据类型：‘按钮名称’:'元素名称'
-    def operation_button(self):
-        dict ={}
-        aa = self.find_elements_class(read_data.get('check_senior_button_element'))
-        aa[0].click()
-        aa[1].click()
+        return dict
+    #查询条件存在高级查询的页面先操作高级查询按钮展开所有查询条件，在返回数据，数据类型：{查询字段：元素}
+    def operation_check_senior_button(self):
+
+        senior_check_data_dict ={}
+        #获取高级查询元素
+        senior_element = self.find_elements_class(read_data.get('check_senior_button_element'))
         time.sleep(1)
-        button_list = self.find_elements_class(read_data.get('operation_button_element'))
+        for i in range(len(senior_element)):
+            senior_check_data_dict[senior_element[i].text] = senior_element[i]
 
-        for i in range(len(button_list)):
 
 
-            dict[button_list[i].text] = button_list[i]
-        print(dict,'operation_button')
-        return dict
+        return senior_check_data_dict
+    #获取查询条件字段值
+    def operation_check_button_value(self):
+
+        check_data_dict ={}
+        #获取高级查询元素
+        senior_element = self.find_elements_class(read_data.get('operation_button_element'))
+        time.sleep(1)
+        for i in range(len(senior_element)):
+            replace_str = str(senior_element[i].text).replace('：','')
+            check_data_dict[replace_str] = senior_element[i]
+
+
+
+        return check_data_dict
+
 #获取查询结果页面返回的数量值
     def get_query_data_total(self):
         total = self.find_element_class(read_data.get('query_result_count'))

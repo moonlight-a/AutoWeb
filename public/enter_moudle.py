@@ -12,6 +12,7 @@ class enter_page(login_action):
 
         tree_data = self.get_menu_tree()
 
+
         tree_data[0].click()
         time.sleep(2)
         list_child = child_element.get(moudle_name)

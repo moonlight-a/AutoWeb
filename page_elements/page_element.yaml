@@ -22,10 +22,13 @@ page_input_text_element: 'ivu-input,ivu-input-default'
 #查询条件-清空按钮
 check_button_clean_element: 'btn-clear,ivu-btn,ivu-btn-default'
 
+#查询下拉框值-元素
+check_select_value_element: 'ivu-select-item'
 #查询条件-查询/高级查询按钮
 check_senior_button_element: 'btn-search,ivu-btn,ivu-btn-default'
 #查询条件-可输入值下拉框
 check_select_input_element: 'ivu-select-input'
+check_select_input_value_element: 'ivu-select-dropdown,ivu-select-dropdown-transfer'
 #查询条件-默认值下拉框
 check_select_defalut_element: 'ivu-select-selected-value'
 #查询条件-默认值下拉框值
