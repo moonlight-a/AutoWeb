@@ -28,41 +28,44 @@ class page_one(enter_page):
 #获取页面查询条件字段值
     def get_page_query_value(self):
         check_value_dict =self.operation_check_button_value()
-
+        print(check_value_dict,'check_value_dictcheck_value_dictcheck_value_dictcheck_value_dictcheck_value_dict')
         return check_value_dict
 
 #操作页面查询字段
     def opeation_page_query(self):
 
+
+        '''通过获取所有查询条件字段及对应的元素方式，存在问题：text类型无法发送文本'''
         filter_name_data =[]
+
         query_element = self.get_page_query_value().get('姓名')
+        print(query_element,'query')
+        time.sleep(2)
         query_element.click()
         time.sleep(2)
         select_value =self.find_elements_class(element_load.get('check_select_value_element'))
         #元素返回的数据存在为空的，通过推导式进行过滤将不为空的进行返回
         [filter_name_data.append(x) for x in select_value if x.text != '']
 
-        time.sleep(1)
         filter_name_data[0].click()
-        query_work_id = self.get_page_query_value().get('登录ID')
-        query_work_id.click()
-        time.sleep(7)
-        query_work_id.send_keys('1234444')
-
-
-        query_login_id = self.get_page_query_value().get('工号')
-        time.sleep(1)
-        query_login_id.send_keys('12345')
-
-
-        query_telphone = self.get_page_query_value().get('手机号')
-        time.sleep(1)
-        query_telphone.send_keys('1515599774')
-        query_account_status = self.get_page_query_value().get('账号状态')
 
 
 
-        time.sleep(2)
+        aaaa = self.get_page_query_value().get('登录ID')
+        print(type(aaaa))
+        time.sleep(5)
+        aaaa.send_keys('123')
+
+
+
+
+
+
+
+
+
+
+
 
         # time.sleep(2)
         # query_element.click()

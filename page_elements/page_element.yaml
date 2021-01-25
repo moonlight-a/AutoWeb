@@ -1,4 +1,7 @@
 #=========公共元素===========#
+#页面文本输入框
+input_text_element: 'ivu-input,ivu-input-default'
+
 #alert弹窗
 alert_element: 'ivu-message-custom-content,ivu-message-warning'
 #Tips元素
@@ -18,7 +21,7 @@ check_box_element: 'ivu-table-cell,ivu-table-cell-with-selection'
 #查询条件-值
 operation_button_element: 'ivu-form-item'
 #查询条件-文本框
-page_input_text_element: 'ivu-input,ivu-input-default'
+page_input_text_element: 'ivu-form-item-content'
 #查询条件-清空按钮
 check_button_clean_element: 'btn-clear,ivu-btn,ivu-btn-default'
 
@@ -59,7 +62,7 @@ add_organization: 'add-cata ivu-btn,ivu-btn-default'
 
 
 
-login:
-  username_password: 'ivu-input,ivu-input-default'
-  click_logon: 'login-btn,ivu-btn,ivu-btn-primary'
+
+#登录按钮
+click_logon_element: 'login-btn,ivu-btn,ivu-btn-primary'
 

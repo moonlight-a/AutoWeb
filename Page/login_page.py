@@ -7,7 +7,6 @@ from public.base import driver
 from public.opertion_element import Element
 PATH = os.path.dirname(os.path.dirname(__file__))
 data_load = yaml.load(open(PATH + '//page_elements//page_element.yaml','r',encoding='utf-8'))
-login_data = data_load.get('login')
 
 
 
@@ -17,7 +16,7 @@ class login_action(Element):
         #进入页面后先截屏
         self.get_image('登录页')
         curr_url = self.get_currernt_url()
-        user_mess = self.find_elements_class(login_data.get('username_password'))
+        user_mess = self.find_elements_class(data_load.get('input_text_element'))
 
         i =0
         while i < len(user_mess):
@@ -25,7 +24,7 @@ class login_action(Element):
             time.sleep(2)
             user_mess[i+1].send_keys(kwargs.get('password'))
             i +=2
-        self.find_element_class(login_data.get('click_logon')).click()
+        self.find_element_class(data_load.get('click_logon_element')).click()
         time.sleep(2)
         operation_url = self.get_currernt_url()
 
