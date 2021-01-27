@@ -25,6 +25,8 @@ page_input_text_element: 'ivu-form-item-content'
 #查询条件-清空按钮
 check_button_clean_element: 'btn-clear,ivu-btn,ivu-btn-default'
 
+#查询条件下拉框按钮-元素
+check_select_button_element: 'ivu-select,ivu-select-visible,ivu-select-single,ivu-select-default'
 #查询下拉框值-元素
 check_select_value_element: 'ivu-select-item'
 #查询条件-查询/高级查询按钮
