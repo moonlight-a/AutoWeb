@@ -1,8 +1,0 @@
-Login_id_element: "//input[@placeholder=\"请输入登录ID\"]"
-search_element: 'ivu-select-item'
-Job_number_element: "//input[@placeholder=\"请输入工号\"]"
-Phone_element: "//input[@placeholder=\"请输入手机号\"]"
-Account_status_element: ''
-Name_select_js: "document.querySelector('.ivu-select-input').click()"
-Account_status_js: "document.querySelector('.ivu-select-selected-value').click()"
-search_button_element: "//span[contains(text(),\"查询\")]"

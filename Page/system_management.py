@@ -5,9 +5,9 @@ from public.enter_moudle import enter_page
 from selenium.webdriver.common.by import By
 PATH = os.path.dirname(os.path.dirname(__file__))
 data_load = yaml.load(open(PATH + '//Test_data//test_role_data.yaml', 'r', encoding='utf-8'))
-query_data = data_load.get('add1_正向')
+
 element_load = yaml.load(open(PATH + '//page_elements//page_element.yaml','r',encoding='utf-8'))
-search_load = yaml.load(open(PATH + '//page_elements//search_yaml.yaml','r',encoding='utf-8'))
+search_load = yaml.load(open(PATH + '//page_elements//page_function_yaml.yaml','r',encoding='utf-8'))
 connect_sql = connect_sql()
 '''查询条件元素信息'''
 Name_select_js = search_load.get('Name_select_js')
@@ -17,6 +17,7 @@ Job_number_element = (By.XPATH,search_load.get('Job_number_element'))
 Phone_element = (By.XPATH,search_load.get('Phone_element'))
 Account_status_element =search_load.get('Account_status_js')
 Search_button_element = (By.XPATH,search_load.get('search_button_element'))
+
 
 class page_one(enter_page):
 
@@ -35,7 +36,6 @@ class page_one(enter_page):
 #获取页面查询条件字段值
     def get_page_query_value(self):
         check_value_dict =self.operation_check_button_value()
-
         return check_value_dict
 
 #操作页面查询字段
@@ -60,15 +60,7 @@ class page_one(enter_page):
         value = self.find_elements_class(Select_value_element)
         [filter_name_data.append(x) for x in value if x.text != '']
         filter_name_data[1].click()
-        time.sleep(2)
         self.find_element_by_xpath(Search_button_element).click()
-
-
-
-
-
-
-
 
 
     def operation_page_add_screen(self):
