@@ -1,0 +1,23 @@
+#批量调整组织
+Batch_adjustment_organization_element: "//span[contains(text(),\"批量调整组织\")]"
+#批量调整角色"
+Batch_adjustment_role_element: "//span[contains(text(),\"批量调整角色\")]"
+
+#所属组织下拉框
+Select_add_organization_js: "document.querySelector('.vue-treeselect__multi-value').click()"
+#新增窗口下拉框选项值
+Select_add_value_elenment: "vue_treeselect_menu"
+#选择角色下拉框
+Select_role_js: "document.querySelector('.vue-treeselect__control').click()"
+#登录ID
+Add_Login_id_element:  "//*[@class='ivu-col ivu-col-span-12']//div//div//div//input[@placeholder=\"请输入登录ID\"]"
+#姓名
+Add_name_element: "//input[@placeholder=\"请输入姓名\"]"
+#工号
+Add_Job_number_element: "//input[@placeholder=\"请输入工号，不填时默认生成\"]"
+#手机号
+Add_Phone_element: "//input[@placeholder=\"请输入手机号\"]"
+#职位
+Add_Position_element: "//input[@placeholder=\"请输入职位\"]"
+#电子邮件
+Add_Email_element: "//input[@placeholder=\"请输入电子邮件\"]"

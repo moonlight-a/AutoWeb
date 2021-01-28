@@ -50,6 +50,11 @@ class Element():
             EC.presence_of_element_located(*loc))
         return element
 
+    def find_elements_by_xpath(self,*loc):
+        element = WebDriverWait(self.driver, 5, 0.5).until(
+            EC.presence_of_all_elements_located(*loc))
+        return element
+
     def find_element_by_link_text(self,*loc):
         link_text_element = WebDriverWait(self.driver,5,0.5).until(EC.presence_of_element_located(*loc))
         return link_text_element
@@ -103,7 +108,7 @@ class Element():
 #操作下拉框获取下拉框中值
     def get_select_data(self):
         select_list =[]
-        #点击下拉康
+        #点击下拉框
         self.find_element_class(Select_element).click()
         time.sleep(1)
         select_value = self.find_elements_class(Select_value_element)

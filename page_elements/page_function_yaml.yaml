@@ -2,7 +2,7 @@
 #登录ID
 Login_id_element: "//input[@placeholder=\"请输入登录ID\"]"
 #下拉框值元素属性
-search_element: 'ivu-select-item'
+Search_element: 'ivu-select-item'
 #工号
 Job_number_element: "//input[@placeholder=\"请输入工号\"]"
 #手机号
@@ -12,13 +12,20 @@ Name_select_js: "document.querySelector('.ivu-select-input').click()"
 #账号状态下拉框
 Account_status_js: "document.querySelector('.ivu-select-selected-value').click()"
 #查询按钮
-search_button_element: "//span[contains(text(),\"查询\")]"
+Search_button_element: "//span[contains(text(),\"查询\")]"
 #清空按钮
-clear_buttion_element: "//span[contains(text(),\"清空\")]"
+Clear_buttion_element: "//span[contains(text(),\"清空\")]"
 #高级查询按钮
-senior_button_element: "//span[contains(text(),\" 高级查询 \")]"
+Senior_button_element: "//span[contains(text(),\" 高级查询 \")]"
 #收起高级查询按钮
-put_senior_button_element: "//span[contains(text(),\" 收起高级查询 \")]"
+Put_senior_button_element: "//span[contains(text(),\" 收起高级查询 \")]"
 ####查询条件元素end####
 
 ###操作功能元素start###
+#新建
+Add_button_element: "//span[contains(text(),\"新建\")]"
+#导入
+Import_button_element: "//span[contains(text(),\"导入\")]"
+#下载导入模版
+Download_button_element: "//span[contains(text(),\"下载导入模版\")]"
+###操作功能元素end###

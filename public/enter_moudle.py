@@ -6,7 +6,8 @@ from public.base import driver
 class enter_page(login_action):
 
     def enter_moudle_name(self,moudle_name):
-        self.log_on(username='15155972770',password='123456')
+        #self.log_on(username='15155972770',password='123456')
+        self.log_on(username='monica', password='123456')
         # 先获取每个父级树菜单中对应的自己元素，在操作父级值
         child_element = self.tree_button_element()
 

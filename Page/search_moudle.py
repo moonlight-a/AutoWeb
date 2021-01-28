@@ -2,24 +2,38 @@ import os,time,yaml
 from public.base import driver
 from Tools.sql_tools import connect_sql
 from selenium.webdriver.common.by import By
-
 from public.enter_moudle import enter_page
 from public.opertion_element import Element
 
 PATH = os.path.dirname(os.path.dirname(__file__))
 search_load = yaml.load(open(PATH + '//page_elements//page_function_yaml.yaml','r',encoding='utf-8'))
+organization_load = yaml.load(open(PATH + '//page_elements//page_organization_element.yaml','r',encoding='utf-8'))
 connect_sql = connect_sql()
-'''查询条件元素信息'''
+'''元素信息start'''
 Name_select_js = search_load.get('Name_select_js')
 Login_id_element = (By.XPATH,search_load.get('Login_id_element'))
-Select_value_element = (By.CLASS_NAME,search_load.get('search_element'))
+Select_value_element = (By.CLASS_NAME,search_load.get('Search_element'))
 Job_number_element = (By.XPATH,search_load.get('Job_number_element'))
 Phone_element = (By.XPATH,search_load.get('Phone_element'))
 Account_status_element =search_load.get('Account_status_js')
-Search_button_element = (By.XPATH,search_load.get('search_button_element'))
-Clear_button_element = (By.XPATH,search_load.get('clear_buttion_element'))
-Senior_button_element = (By.XPATH,search_load.get('senior_button_element'))
-Put_senior_button_element = (By.XPATH,search_load.get('put_senior_button_element'))
+Search_button_element = (By.XPATH,search_load.get('Search_button_element'))
+Clear_button_element = (By.XPATH,search_load.get('Clear_buttion_element'))
+Senior_button_element = (By.XPATH,search_load.get('Senior_button_element'))
+Put_senior_button_element = (By.XPATH,search_load.get('Put_senior_button_element'))
+Add_button_element = (By.XPATH,search_load.get('Add_button_element'))
+Import_button_element = (By.XPATH,search_load.get('Import_button_element'))
+Download_button_element = (By.XPATH,search_load.get('Download_button_element'))
+Select_add_js = organization_load.get('Select_add_organization_js')
+Select_add_value_elenment = (By.CLASS_NAME,organization_load.get('Select_add_value_elenment'))
+Select_add_role_js = organization_load.get('Select_role_js')
+Add_Login_id_element = (By.XPATH,organization_load.get('Add_Login_id_element'))
+Add_name_element = (By.XPATH,organization_load.get('Add_name_element'))
+Add_Job_number_element = (By.XPATH,organization_load.get('Add_Job_number_element'))
+Add_Phone_element = (By.XPATH,organization_load.get('Add_Phone_element'))
+Add_Position_element = (By.XPATH,organization_load.get('Add_Position_element'))
+Add_Email_element = (By.XPATH,organization_load.get('Add_Email_element'))
+
+'''元素信息end'''
 class search_page(enter_page):
     def screen_page(self):
         self.enter_moudle_name('系统管理')
@@ -67,9 +81,39 @@ class search_page(enter_page):
         pass
 
 
+#操作新增按钮，打开新增窗口后传入新增值
+    def operation_add_button(self):
+        self.find_element_by_xpath(Add_button_element).click()
+#操作新增模块中，文本框输入
+    def operation_add_input_text(self,**kwargs):
+        Add_Login_id = self.find_element_by_xpath(Add_Login_id_element)
+        Add_name = self.find_element_by_xpath(Add_name_element)
+        Add_Job_number = self.find_element_by_xpath(Add_Job_number_element)
+        Add_Phone = self.find_element_by_xpath(Add_Phone_element)
+        Add_Position = self.find_element_by_xpath(Add_Position_element)
+        Add_Email = self.find_element_by_xpath(Add_Email_element)
+        Add_name.send_keys(kwargs.get('Add_name'))
+        Add_Login_id.send_keys(kwargs.get('Add_Login'))
+        Add_Position.send_keys(kwargs.get('Add_Position'))
+        Add_Job_number.send_keys(kwargs.get('Add_Job'))
+        Add_Phone.send_keys(kwargs.get('Add_Phone'))
+        Add_Email.send_keys(kwargs.get('Add_Email'))
+    def operation_add_select(self):
+        filter_name_data =[]
+        self.select_block(Select_add_value_elenment)
+        data_value = self.find_elements_class(Select_add_value_elenment)
+        [filter_name_data.append(x) for x in data_value if x.text != '']
+        filter_name_data[1].click()
+
+        pass
+    
+
     def main(self):
         self.screen_page()
-        self.operation_senior_button()
+        self.operation_add_button()
+        self.operation_add_input_text(Add_name='selnina',Add_Login='monica',Add_Position='测试',Add_Job='123456',Add_Phone='15155972770',Add_Email='563455843@qq.com')
+        self.operation_add_select()
+        # self.operation_senior_button()
         # self.opeation_select_input_query()
         # self.opeation_input_query(login_id='ceshi',job_number='1234',phone='15155972777')
         # self.operation_select_default_query()
