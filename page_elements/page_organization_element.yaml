@@ -4,11 +4,11 @@ Batch_adjustment_organization_element: "//span[contains(text(),\"批量调整组
 Batch_adjustment_role_element: "//span[contains(text(),\"批量调整角色\")]"
 
 #所属组织下拉框
-Select_add_organization_js: "document.querySelector('.vue-treeselect__multi-value').click()"
+Select_add_organization_element: "//div[@class='vue-treeselect__control']"
 #新增窗口下拉框选项值
-Select_add_value_elenment: "vue_treeselect_menu"
+Select_add_value_elenment: "//div[@class='vue_treeselect_menu']"
 #选择角色下拉框
-Select_role_js: "document.querySelector('.vue-treeselect__control').click()"
+Select_add_role_element: "//div[contains(text(),\"请输入或选择角色\")]"
 #登录ID
 Add_Login_id_element:  "//*[@class='ivu-col ivu-col-span-12']//div//div//div//input[@placeholder=\"请输入登录ID\"]"
 #姓名

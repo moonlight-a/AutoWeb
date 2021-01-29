@@ -18,7 +18,7 @@ Alert_element = (By.CLASS_NAME,read_data.get('alert_element'))
 Tips_element = (By.CLASS_NAME,read_data.get('tips_element'))
 Select_element = (By.CLASS_NAME,read_data.get('select_element'))
 Select_value_element = (By.CLASS_NAME,read_data.get('select_value_element'))
-Menu_tree_element = (By.CLASS_NAME,read_data.get('menu_tree_element'))
+Menu_tree_element = (By.XPATH,read_data.get('menu_tree_element'))
 Menu_tree_value_element = (By.CLASS_NAME,read_data.get('menu_tree_value_element'))
 Check_senior_button_element = (By.CLASS_NAME,read_data.get('check_senior_button_element'))
 Operation_button_element = (By.CLASS_NAME,read_data.get('operation_button_element'))
@@ -101,6 +101,7 @@ class Element():
 
 #通过js属性操作下拉框是隐藏属性可见
     def select_block(self,js):
+
         # js = 'document.querySelectorAll("select")[0].style.display="block";'
         self.driver.execute_script(js)
 
@@ -128,7 +129,7 @@ class Element():
 
 #获取左侧菜单栏数据
     def get_menu_tree(self):
-        tree_data = self.find_elements_class(Menu_tree_element)
+        tree_data = self.find_elements_by_xpath(Menu_tree_element)
         return tree_data
 
 #操作数菜单的下拉按钮并获取子级数据

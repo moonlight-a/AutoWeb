@@ -55,4 +55,4 @@ if __name__ == '__main__':
 
     ll = login_action(driver())
     # 'username'='lijie7','password'='123456789'
-    ll.log_on(username= '15155972770',password = '123456')
+    ll.log_on(username= 'monica',password = '123456')

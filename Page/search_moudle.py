@@ -23,9 +23,9 @@ Put_senior_button_element = (By.XPATH,search_load.get('Put_senior_button_element
 Add_button_element = (By.XPATH,search_load.get('Add_button_element'))
 Import_button_element = (By.XPATH,search_load.get('Import_button_element'))
 Download_button_element = (By.XPATH,search_load.get('Download_button_element'))
-Select_add_js = organization_load.get('Select_add_organization_js')
-Select_add_value_elenment = (By.CLASS_NAME,organization_load.get('Select_add_value_elenment'))
-Select_add_role_js = organization_load.get('Select_role_js')
+Select_add_organization_element = (By.XPATH,organization_load.get('Select_add_organization_element'))
+Select_add_value_elenment = (By.XPATH,organization_load.get('Select_add_value_elenment'))
+Select_add_role_element = (By.XPATH,organization_load.get('Select_add_role_element'))
 Add_Login_id_element = (By.XPATH,organization_load.get('Add_Login_id_element'))
 Add_name_element = (By.XPATH,organization_load.get('Add_name_element'))
 Add_Job_number_element = (By.XPATH,organization_load.get('Add_Job_number_element'))
@@ -100,10 +100,19 @@ class search_page(enter_page):
         Add_Email.send_keys(kwargs.get('Add_Email'))
     def operation_add_select(self):
         filter_name_data =[]
-        self.select_block(Select_add_value_elenment)
-        data_value = self.find_elements_class(Select_add_value_elenment)
-        [filter_name_data.append(x) for x in data_value if x.text != '']
-        filter_name_data[1].click()
+        organization_select = self.find_elements_by_xpath(Select_add_organization_element)
+        organization_select[4].click()
+
+        www= self.find_element_by_xpath(Select_add_value_elenment)
+        print(www)
+
+
+
+
+
+        # data_value = self.find_elements_class(Select_add_value_elenment)
+        # [filter_name_data.append(x) for x in data_value if x.text != '']
+        # filter_name_data[1].click()
 
         pass
     

@@ -12,7 +12,7 @@ select_element: 'ivu-icon,ivu-icon-ios-arrow-down,ivu-select-arrow'
 #下拉框值元素
 select_value_element: 'ivu-select-dropdown,ivu-select-dropdown-transfer'
 #菜单树元素(单个父级节点class属性）
-menu_tree_element: 'ivu-menu-submenu-title'
+#menu_tree_element: 'ivu-menu-submenu-title'
 #菜单树值元素（单个子级节点class属性）
 menu_tree_value_element: 'second-menu-item,ivu-menu-item'
 #复选框元素
@@ -50,11 +50,8 @@ more_button_select_value_element: '更多按钮为悬浮显示数据按钮，该
 #翻页总数据条目
 count_data_element: 'ivu-page-total'
 #=========公共元素===========#
-
-#===系统管理===#
-  #=组织架构=#
-add_organization: 'add-cata ivu-btn,ivu-btn-default'
-
+#左侧菜单树一级菜单
+menu_tree_element: "//ul[(@class='ivu-menu ivu-menu-dark ivu-menu-vertical' or (@class='ivu-layout-sider-trigger'))]/child::*"
 
 
 
