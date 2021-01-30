@@ -22,7 +22,7 @@ Search_button_element = (By.XPATH,search_load.get('search_button_element'))
 class page_one(enter_page):
 
     def screen_page(self):
-        self.enter_moudle_name('系统管理')
+
         time.sleep(2)
         self.get_image('组织架构')
         return None

@@ -29,3 +29,5 @@ Import_button_element: "//span[contains(text(),\"导入\")]"
 #下载导入模版
 Download_button_element: "//span[contains(text(),\"下载导入模版\")]"
 ###操作功能元素end###
+organization_test_element: "//li[contains(text(),\"组织架构\")]"
+#####组织架构######

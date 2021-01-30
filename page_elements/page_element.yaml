@@ -50,6 +50,8 @@ more_button_select_value_element: '更多按钮为悬浮显示数据按钮，该
 #翻页总数据条目
 count_data_element: 'ivu-page-total'
 #=========公共元素===========#
+#checkbox复选框按钮
+checkbox_button_element: "ivu-checkbox-input"
 #左侧菜单树一级菜单
 menu_tree_element: "//ul[(@class='ivu-menu ivu-menu-dark ivu-menu-vertical' or (@class='ivu-layout-sider-trigger'))]/child::*"
 

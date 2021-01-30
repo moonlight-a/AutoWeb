@@ -32,11 +32,13 @@ Add_Job_number_element = (By.XPATH,organization_load.get('Add_Job_number_element
 Add_Phone_element = (By.XPATH,organization_load.get('Add_Phone_element'))
 Add_Position_element = (By.XPATH,organization_load.get('Add_Position_element'))
 Add_Email_element = (By.XPATH,organization_load.get('Add_Email_element'))
-
+wwwwwwww = (By.XPATH,search_load.get('organization_test_element'))
+Check_all_button_element = (By.CLASS_NAME,search_load.get('checkbox_button_element'))
 '''元素信息end'''
 class search_page(enter_page):
     def screen_page(self):
-        self.enter_moudle_name('系统管理')
+        self.enter_moudle_name()
+        self.find_element_by_xpath(wwwwwwww).click()
         time.sleep(2)
         self.get_image('组织架构')
         return None
