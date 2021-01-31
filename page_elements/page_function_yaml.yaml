@@ -28,6 +28,12 @@ Add_button_element: "//span[contains(text(),\"新建\")]"
 Import_button_element: "//span[contains(text(),\"导入\")]"
 #下载导入模版
 Download_button_element: "//span[contains(text(),\"下载导入模版\")]"
+
+#添加组织
+Add_organization_element: "//span[contains(text(),\"添加组织\")]"
+Add_organization_name_element: "//input[@placeholder=\"请输入组织名称，同级不得重复\"]"
+Add_organization_id_element: "//input[@placeholder=\"请输入组织编号，不填默认生成\"]"
+Add_organization_confirm_element: "//button[@class='btn-search ivu-btn ivu-btn-default']/descendant::span[contains(text(),\"确定\")]"
 ###操作功能元素end###
 organization_test_element: "//li[contains(text(),\"组织架构\")]"
 #####组织架构######

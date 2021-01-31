@@ -34,6 +34,7 @@ Add_Position_element = (By.XPATH,organization_load.get('Add_Position_element'))
 Add_Email_element = (By.XPATH,organization_load.get('Add_Email_element'))
 wwwwwwww = (By.XPATH,search_load.get('organization_test_element'))
 Check_all_button_element = (By.CLASS_NAME,search_load.get('checkbox_button_element'))
+Add_organization_element = (By.XPATH,search_load.get('Add_organization_element'))
 '''元素信息end'''
 class search_page(enter_page):
     def screen_page(self):
@@ -100,6 +101,8 @@ class search_page(enter_page):
         Add_Job_number.send_keys(kwargs.get('Add_Job'))
         Add_Phone.send_keys(kwargs.get('Add_Phone'))
         Add_Email.send_keys(kwargs.get('Add_Email'))
+
+    ###该下拉框外层数被封装无法通过元素去调用#######
     def operation_add_select(self):
         filter_name_data =[]
         organization_select = self.find_elements_by_xpath(Select_add_organization_element)
@@ -108,7 +111,12 @@ class search_page(enter_page):
         www= self.find_element_by_xpath(Select_add_value_elenment)
         print(www)
 
+    ###该下拉框外层数被封装无法通过元素去调用#######
 
+    def operation_checkbox(self):
+        self.find_element_by_xpath(Check_all_button_element).click()
+
+        pass
 
 
 
@@ -118,12 +126,17 @@ class search_page(enter_page):
 
         pass
     
+    #操作添加组织按钮
+    def operation_add_organization(self):
+        self.find_element_by_xpath(Add_organization_element).click()
+
 
     def main(self):
         self.screen_page()
-        self.operation_add_button()
-        self.operation_add_input_text(Add_name='selnina',Add_Login='monica',Add_Position='测试',Add_Job='123456',Add_Phone='15155972770',Add_Email='563455843@qq.com')
-        self.operation_add_select()
+        self.operation_add_organization()
+        # self.operation_add_button()
+        # self.operation_add_input_text(Add_name='selnina',Add_Login='monica',Add_Position='测试',Add_Job='123456',Add_Phone='15155972770',Add_Email='563455843@qq.com')
+        # self.operation_add_select()
         # self.operation_senior_button()
         # self.opeation_select_input_query()
         # self.opeation_input_query(login_id='ceshi',job_number='1234',phone='15155972777')
