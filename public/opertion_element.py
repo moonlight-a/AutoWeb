@@ -10,9 +10,8 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from public import base
 PATH = os.path.dirname(os.path.dirname(__file__))
-open_data = open(PATH + '//page_elements//page_element.yaml','r',encoding='utf-8')
+open_data = open(PATH + '//page_elements//page_public_element.yaml','r',encoding='utf-8')
 read_data = yaml.load(open_data)
-
 
 Alert_element = (By.CLASS_NAME,read_data.get('alert_element'))
 Tips_element = (By.CLASS_NAME,read_data.get('tips_element'))
@@ -30,6 +29,7 @@ class Element():
 
     def __init__(self,driver):
         self.driver = driver
+
 
     def find_element_class(self,*loc):
         element = WebDriverWait(self.driver,5,0.5).until(

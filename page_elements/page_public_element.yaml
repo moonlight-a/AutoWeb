@@ -1,0 +1,23 @@
+#checkbox复选框按钮
+checkbox_button_element: "ivu-checkbox-input"
+#左侧菜单树一级菜单
+menu_tree_element: "//ul[(@class='ivu-menu ivu-menu-dark ivu-menu-vertical' or (@class='ivu-layout-sider-trigger'))]/child::*"
+#新建
+Add_button_element: "//span[contains(text(),\"新建\")]"
+#导入
+Import_button_element: "//span[contains(text(),\"导入\")]"
+#下载导入模版
+Download_button_element: "//span[contains(text(),\"下载导入模版\")]"
+#查询按钮
+Search_button_element: "//span[contains(text(),\"查询\")]"
+#清空按钮
+Clear_buttion_element: "//span[contains(text(),\"清空\")]"
+#高级查询按钮
+Senior_button_element: "//span[contains(text(),\" 高级查询 \")]"
+#收起高级查询按钮
+Put_senior_button_element: "//span[contains(text(),\" 收起高级查询 \")]"
+
+#alert弹窗
+alert_element: 'ivu-message-custom-content,ivu-message-warning'
+#Tips元素
+tips_element: 'ivu-form-item-error-tip'

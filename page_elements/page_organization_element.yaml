@@ -21,3 +21,23 @@ Add_Phone_element: "//input[@placeholder=\"请输入手机号\"]"
 Add_Position_element: "//input[@placeholder=\"请输入职位\"]"
 #电子邮件
 Add_Email_element: "//input[@placeholder=\"请输入电子邮件\"]"
+#添加组织
+Add_organization_element: "//span[contains(text(),\"添加组织\")]"
+Add_organization_name_element: "//input[@placeholder=\"请输入组织名称，同级不得重复\"]"
+Add_organization_id_element: "//input[@placeholder=\"请输入组织编号，不填默认生成\"]"
+Add_organization_confirm_element: "//button[@class='btn-search ivu-btn ivu-btn-default']/descendant::span[contains(text(),\"确定\")]"
+###操作功能元素end###
+organization_test_element: "//li[contains(text(),\"组织架构\")]"
+#####组织架构######
+#登录ID
+Login_id_element: "//input[@placeholder=\"请输入登录ID\"]"
+#下拉框值元素属性
+Search_element: 'ivu-select-item'
+#工号
+Job_number_element: "//input[@placeholder=\"请输入工号\"]"
+#手机号
+Phone_element: "//input[@placeholder=\"请输入手机号\"]"
+#姓名下拉框
+Name_select_js: "document.querySelector('.ivu-select-input').click()"
+#账号状态下拉框
+Account_status_js: "document.querySelector('.ivu-select-selected-value').click()"

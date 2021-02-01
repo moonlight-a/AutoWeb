@@ -7,46 +7,44 @@ from public.base import driver
 from public.opertion_element import Element
 from selenium.webdriver.common.by import By
 PATH = os.path.dirname(os.path.dirname(__file__))
-data_load = yaml.load(open(PATH + '//page_elements//page_element.yaml','r',encoding='utf-8'))
-
-
-
-usrname_password = (By.CLASS_NAME,data_load.get('input_text_element'))
-clikc_button = (By.CLASS_NAME,data_load.get('click_logon_element'))
+login_page_element = yaml.load(open(PATH + '//page_elements//page_login_element.yaml','r',encoding='utf-8'))
+username_element = (By.XPATH,login_page_element.get('username_element'))
+password_element = (By.XPATH,login_page_element.get('password_element'))
+logon_button_element = (By.CLASS_NAME,login_page_element.get('logon_button_element'))
 
 class login_action(Element):
 
     def log_on(self,**kwargs):
-        #进入页面后先截屏
-        self.get_image('登录页')
+
         curr_url = self.get_currernt_url()
-        user_mess = self.find_elements_class(usrname_password)
-
-        i =0
-        while i < len(user_mess):
-            user_mess[i].send_keys(kwargs.get('username'))
-            time.sleep(2)
-            user_mess[i+1].send_keys(kwargs.get('password'))
-            i +=2
-        self.find_element_class(clikc_button).click()
-        time.sleep(2)
+        user_mess = self.find_element_by_xpath(username_element)
+        pass_mess = self.find_element_by_xpath(password_element)
+        user_mess.send_keys(kwargs.get('username'))
+        pass_mess.send_keys(kwargs.get('password'))
+        self.find_element_class(logon_button_element).click()
         operation_url = self.get_currernt_url()
+        #判断usernme或者password是否有值，决定调用alert还是tips_error
 
-        if curr_url != operation_url:
 
-            pass
-        # else:
-        #     time.sleep(1)
-        #
-        #     #判断usernme或者password是否有值，决定调用alert还是tips_error
-        #
-        #     if kwargs.get('username') ==' '  or  kwargs.get('password') == ' ':
-        #         print(self.get_tips_error())
-        #
-        #     elif  kwargs.get('username') !=''  and kwargs.get('password') != '':
-        #         print(self.get_alter_text())
-        #     else:
-        #         print(self.get_tips_error())
+        if (kwargs.get('username') =='') or (kwargs.get('password')==''):
+             print((kwargs.get('username') ==''),'33333333333333333333333333333')
+             print((kwargs.get('password') ==''),'444444444444444')
+             print(self.get_tips_error())
+             return self.get_tips_error()
+
+        elif  kwargs.get('username') !=''  and kwargs.get('password') != '':
+            print(self.get_alter_text())
+            return self.get_alter_text()
+        elif curr_url != operation_url:
+
+            return True
+        elif curr_url == operation_url:
+
+            return False
+        else:
+            print(self.get_tips_error())
+            return self.get_tips_error()
+
 
 
 
@@ -55,4 +53,5 @@ if __name__ == '__main__':
 
     ll = login_action(driver())
     # 'username'='lijie7','password'='123456789'
-    ll.log_on(username= 'monica',password = '123456')
+    www =ll.log_on(username= '123',password = '1')
+    print(www)
