@@ -1,4 +1,5 @@
 import os
+import re
 import time
 
 import yaml
@@ -15,7 +16,6 @@ logon_button_element = (By.CLASS_NAME,login_page_element.get('logon_button_eleme
 class login_action(Element):
 
     def log_on(self,**kwargs):
-
         curr_url = self.get_currernt_url()
         user_mess = self.find_element_by_xpath(username_element)
         pass_mess = self.find_element_by_xpath(password_element)
@@ -23,28 +23,24 @@ class login_action(Element):
         pass_mess.send_keys(kwargs.get('password'))
         self.find_element_class(logon_button_element).click()
         operation_url = self.get_currernt_url()
+
         #判断usernme或者password是否有值，决定调用alert还是tips_error
 
-
-        if (kwargs.get('username') =='') or (kwargs.get('password')==''):
-             print((kwargs.get('username') ==''),'33333333333333333333333333333')
-             print((kwargs.get('password') ==''),'444444444444444')
+        if kwargs.get('username') =='' or kwargs.get('password')=='':
              print(self.get_tips_error())
              return self.get_tips_error()
 
-        elif  kwargs.get('username') !=''  and kwargs.get('password') != '':
-            print(self.get_alter_text())
-            return self.get_alter_text()
-        elif curr_url != operation_url:
-
-            return True
-        elif curr_url == operation_url:
-
-            return False
-        else:
+        elif   (kwargs.get('username') =='') and (kwargs.get('password')==''):
             print(self.get_tips_error())
             return self.get_tips_error()
 
+        elif curr_url != operation_url:
+            print('登录成功')
+            return True
+
+        else:
+            print(self.get_alter_text())
+            return self.get_alter_text()
 
 
 
@@ -53,5 +49,5 @@ if __name__ == '__main__':
 
     ll = login_action(driver())
     # 'username'='lijie7','password'='123456789'
-    www =ll.log_on(username= '123',password = '1')
+    www =ll.log_on(username= '',password = '')
     print(www)
