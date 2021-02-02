@@ -72,13 +72,9 @@ class Element():
         #由于文本框存在多个值需将错误提示语封装到list
         list_error = []
         error_text = self.find_elements_class(Tips_element)
-
-        if len(error_text) > 1:
-            for text in range(len(error_text)):
-                list_error.append(error_text[text].text)
-            return list_error
-        else:
-            return error_text[0].text
+        for text in range(len(error_text)):
+            list_error.append(error_text[text].text)
+        return list_error
 # 获取页面当前url
     def get_currernt_url(self):
 

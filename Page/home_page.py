@@ -1,11 +1,9 @@
 import time
-
-from Page.login_page import login_action
-
 from public.base import driver
+from public.opertion_element import Element
 
 
-class home_action(login_action):
+class home_action(Element):
 
     #获取首页图片
     def compare_image(self):

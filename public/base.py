@@ -1,5 +1,6 @@
 import os
 
+import pytest
 import yaml
 from selenium import webdriver
 
@@ -16,6 +17,7 @@ def driver():
     driver.get(url_data.get('url'))
     driver.maximize_window()
     return driver
+
 
 
 
