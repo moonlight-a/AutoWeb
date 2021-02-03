@@ -1,9 +1,10 @@
 import time
 from public.base import driver
-from public.opertion_element import Element
+from public.operation_public_page import operation_page_function
 
 
-class home_action(Element):
+
+class home_action(operation_page_function):
 
     #获取首页图片
     def compare_image(self):

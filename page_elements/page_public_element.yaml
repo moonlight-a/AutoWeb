@@ -16,8 +16,22 @@ Clear_buttion_element: "//span[contains(text(),\"清空\")]"
 Senior_button_element: "//span[contains(text(),\" 高级查询 \")]"
 #收起高级查询按钮
 Put_senior_button_element: "//span[contains(text(),\" 收起高级查询 \")]"
-
 #alert弹窗
 alert_element: 'ivu-message-custom-content,ivu-message-warning'
 #Tips元素
 tips_element: 'ivu-form-item-error-tip'
+#下拉框值元素属性
+Select_value_element: 'ivu-select-item'
+#树菜单子级元素
+Child_data_element: "ivu-menu"
+#查询条件Value1
+Search_id_element: "//input[@placeholder=\"请输入登录ID\"]"
+#查询条件Value2
+Search_Job_number_element: "//input[@placeholder=\"请输入工号\"]"
+#查询条件Value3
+Search_Phone_element: "//input[@placeholder=\"请输入手机号\"]"
+
+#可进行检索查询的下拉框
+Name_select_js: "document.querySelector('.ivu-select-input').click()"
+#存在默认值的下拉框
+Defaule_select_value_js: "document.querySelector('.ivu-select-selected-value').click()"

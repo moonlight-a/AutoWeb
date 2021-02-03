@@ -1,6 +1,6 @@
 import allure
 import pytest
-from Page.home_page import home_action
+
 from Page.login_page import login_action
 from public.base import driver
 class Test_login():
@@ -10,7 +10,7 @@ class Test_login():
 
     def test_01(self):
         aa = login_action(driver())
-        aa.log_on(username='', password='123456')
+        aa.login_on(username='', password='123456')
         res =aa.check_login_status()
 
         assert "请输入登录ID" == res[0]
