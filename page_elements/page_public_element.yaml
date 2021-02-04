@@ -22,8 +22,8 @@ alert_element: 'ivu-message-custom-content,ivu-message-warning'
 tips_element: 'ivu-form-item-error-tip'
 #下拉框值元素属性
 Select_value_element: 'ivu-select-item'
-#树菜单子级元素
-Child_data_element: "ivu-menu"
+#树菜单二级子级元素
+Child_data_element: "second-menu-item,ivu-menu-item"
 #查询条件Value1
 Search_id_element: "//input[@placeholder=\"请输入登录ID\"]"
 #查询条件Value2
