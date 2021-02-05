@@ -24,8 +24,25 @@ Add_Email_element: "//input[@placeholder=\"请输入电子邮件\"]"
 Add_organization_element: "//span[contains(text(),\"添加组织\")]"
 Add_organization_name_element: "//input[@placeholder=\"请输入组织名称，同级不得重复\"]"
 Add_organization_id_element: "//input[@placeholder=\"请输入组织编号，不填默认生成\"]"
-Add_organization_confirm_element: "//button[@class='btn-search ivu-btn ivu-btn-default']/descendant::span[contains(text(),\"确定\")]"
+
 #组织架构文本元素
 organization_test_element: "//li[contains(text(),\"组织架构\")]"
 
+#新增编辑窗口确定按钮下标（32）
+Confirm_button_element: "//button[@class='btn-search ivu-btn ivu-btn-default']"
 
+#新增编辑窗口取消按钮下标（32）
+Clear_button_element: "//button[@class='btn-clear ivu-btn ivu-btn-default']"
+#新增编辑窗口确定并继续创建按钮，下标（1）
+Confirm&continue_button_element: "//button[@class='btn-search continue ivu-btn ivu-btn-default']"
+
+#添加子组织，下标为（0）
+Add_child_organization_element: "//li[@class='ivu-dropdown-item' and contains(text(),\"添加子组织\")]"
+
+#查看组织详情
+Organization_details_element: "//li[@class='ivu-dropdown-item' and contains(text(),\"详情\")]"
+
+#删除组织数据
+Delete_organization_element: "//li[@class='ivu-dropdown-item' and contains(text(),\"删除\")]"
+#编辑子组织数据
+Edit_organization_element: "//li[@class='ivu-dropdown-item' and contains(text(),\"编辑\")]"

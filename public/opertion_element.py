@@ -65,11 +65,12 @@ class Element():
             print(e)
 
 #操作需要鼠标悬浮显示元素值
-    def mouse_action(self,value_text,operation_text):
-        ActionChains(self.driver).move_to_element(self.find_element_by_link_text(value_text)).perform()
-        time.sleep(2)
-        self.find_element_by_link_text(operation_text).click()
+    def mouse_action(self,aa):
 
+        ActionChains(self.driver).move_to_element(aa).click(aa).perform()
+        # time.sleep(2)
+        # self.find_element_by_link_text(operation_text).click()
+        return None
 
 if __name__ == '__main__':
 

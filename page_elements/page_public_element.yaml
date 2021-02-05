@@ -4,8 +4,7 @@ checkbox_button_element: "ivu-checkbox-input"
 menu_tree_element: "//ul[(@class='ivu-menu ivu-menu-dark ivu-menu-vertical' or (@class='ivu-layout-sider-trigger'))]/child::*"
 #新建
 Add_button_element: "//span[contains(text(),\"新建\")]"
-#导入
-Import_button_element: "//span[contains(text(),\"导入\")]"
+
 #下载导入模版
 Download_button_element: "//span[contains(text(),\"下载导入模版\")]"
 #查询按钮
@@ -30,7 +29,8 @@ Search_id_element: "//input[@placeholder=\"请输入登录ID\"]"
 Search_Job_number_element: "//input[@placeholder=\"请输入工号\"]"
 #查询条件Value3
 Search_Phone_element: "//input[@placeholder=\"请输入手机号\"]"
-
+#导入按钮
+Import_button_element: "//input[@type='file']"
 #可进行检索查询的下拉框
 Name_select_js: "document.querySelector('.ivu-select-input').click()"
 #存在默认值的下拉框

@@ -14,7 +14,14 @@ ORGANIATION_NAME = (By.XPATH,organ_framework.get('Add_organization_name_element'
 ORGANIATION_ID = (By.XPATH,organ_framework.get('Add_organization_id_element'))
 #组织确定提交按钮
 ADD_ORGANIATION_CONFIRM_BUTTON = (By.XPATH,organ_framework.get('Add_organization_confirm_element'))
-
+#新增编辑窗口确定按钮下标（32）
+CONFIRM_BUTTON = (By.XPATH,organ_framework.get('Confirm_button_element'))
+#新增编辑窗口取消按钮下标（32）
+CLEAR_BUTTON = (By.XPATH,organ_framework.get('Clear_button_element'))
+#新增编辑窗口确定并继续创建按钮，下标（1）
+CONFIRM_CONTINUE_BUTTON = (By.XPATH,organ_framework.get('Confirm&continue_button_element'))
+#添加子组织元素，下标（0）
+ADD_CHILD_ORGANIZATION_BUTTON = (By.XPATH,organ_framework.get('Confirm&continue_button_element'))
 class page_one(login_action):
 
     @allure.step('进入系统首页')
@@ -29,6 +36,7 @@ class page_one(login_action):
     @allure.description("点击高级查询按钮，展开全部查询条件")
     def click_senior_button(self):
         self.operation_senior_button()
+
     @allure.step('输入查询条件值')
     @allure.description("操作查询按钮，输入查询条件值")
     def input_search_value(self,index,**kwargs):
@@ -46,20 +54,35 @@ class page_one(login_action):
     def Add_user_data(self):
         pass
 
-    @allure.step('点击添加组织按钮')
+    @allure.step('点击添加组织按钮,并进行提交')
     @allure.description("添加组织数据")
     def Add_organization_data(self,*args):
         self.find_element_by_xpath(ADD_ORGANIATION_BUTTON).click()
         self.find_element_by_xpath(ORGANIATION_NAME).send_keys(args[0])
-
         self.find_element_by_xpath(ORGANIATION_ID).send_keys(args[1])
-        time.sleep(1)
-        self.operation_confirm_button()
+        value = self.find_elements_by_xpath(CONFIRM_BUTTON)
+        value[32].click()
+
+    @allure.step('点击添加组织按钮,并点击取消按钮')
+    @allure.description("取消添加组织数据")
+    def cancel_organization_data(self):
+        self.find_element_by_xpath(ADD_ORGANIATION_BUTTON).click()
+        value = self.find_elements_by_xpath(CLEAR_BUTTON)
+        value[32].click()
+
+    @allure.step('添加子组织数据--cunzaiwenti')
+    @allure.description("鼠标悬浮到全部组织父级数据，进行操作")
+    def Add_child_organization(self):
+        pass
 
 
+    #导入文件
+    def operation_import(self,file_path):
+        self.operation_import_button(file_path)
     def main(self):
         self.enter_organization()
-        self.Add_organization_data('自动化测试','1234')
+        time.sleep(3)
+        self.operation_import("F:\\360MoveData\\Users\\Administrator\\Desktop\\123\\test.xls")
         # self.click_senior_button()
         # self.input_search_value(1,search_one='1234',search_two='987654',search_three='15155972770')
 

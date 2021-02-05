@@ -36,6 +36,8 @@ Download_button_element = (By.XPATH,page_public_element.get('Download_button_ele
 ADD_CONFIRM_BUTTON = (By.CLASS_NAME,page_public_element.get("confirm_button_element"))
 Check_all_button_element = (By.CLASS_NAME,page_public_element.get('checkbox_button_element'))
 Add_organization_element = (By.XPATH,page_public_element.get('Add_organization_element'))
+IMPORT_BUTTON = (By.XPATH,page_public_element.get('Import_button_element'))
+#导入按钮
 '''元素信息end'''
 
 class operation_page_function(Element):
@@ -60,14 +62,6 @@ class operation_page_function(Element):
         [filter_name_data.append(x) for x in value if x.text != '']
         filter_name_data[index].click()
 
-
-    #操作新增窗口提交按钮元素
-    def operation_confirm_button(self):
-        dict={}
-        filter_name_data=[]
-        value = self.find_elements_class(ADD_CONFIRM_BUTTON)
-        for i in value:
-         print(i.text)
 
 
 
@@ -151,6 +145,10 @@ class operation_page_function(Element):
         str_list = total_value.split(' ')
         int_value = str_list[1]
         return int_value
+
+    #操作页面导入按钮
+    def operation_import_button(self,file_path):
+        self.find_element_by_xpath(IMPORT_BUTTON).send_keys( file_path)
 
 
 if __name__ == '__main__':
