@@ -36,32 +36,38 @@ Download_button_element = (By.XPATH,page_public_element.get('Download_button_ele
 ADD_CONFIRM_BUTTON = (By.CLASS_NAME,page_public_element.get("confirm_button_element"))
 Check_all_button_element = (By.CLASS_NAME,page_public_element.get('checkbox_button_element'))
 Add_organization_element = (By.XPATH,page_public_element.get('Add_organization_element'))
-IMPORT_BUTTON = (By.XPATH,page_public_element.get('Import_button_element'))
 #导入按钮
+IMPORT_BUTTON = (By.XPATH,page_public_element.get('Import_button_element'))
+#二次弹窗-确认
+SECOND_ALTER_SURE_ELEMENNT = (By.XPATH,page_public_element.get('Second_alter_sure'))
+#二次弹窗-取消
+SECOND_ALTER_CANCEL_ELEMENT = (By.XPATH,page_public_element('Second_alter_cancel'))
+
 '''元素信息end'''
 
 class operation_page_function(Element):
     #操作checkbox按钮
     def operation_checkbox(self):
         self.find_element_by_xpath(Check_all_button_element).click()
-
+        return None
     # 操作新增按钮，打开新增窗口后传入新增值
     def operation_add_button(self):
         self.find_element_by_xpath(Add_button_element).click()
+        return None
 
     # 操作页面高级查询按钮展开所有查询条件
     def operation_senior_button(self):
         self.find_element_by_xpath(Senior_button_element).click()
+        return None
 
     # 操作页面可查询下拉框元素值
     def opeation_select_input_query(self,index):
         filter_name_data = []
         self.select_block(Name_select_js)
-        time.sleep(1)
         value = self.find_elements_class(Select_value_element)
         [filter_name_data.append(x) for x in value if x.text != '']
         filter_name_data[index].click()
-
+        return None
 
 
 
@@ -73,7 +79,7 @@ class operation_page_function(Element):
         search_value_one.send_keys(kwargs.get('search_one'))
         search_value_two.send_keys(kwargs.get('search_two'))
         search_value_thr.send_keys(kwargs.get('search_three'))
-
+        return None
     # 操作有默认值的下拉框
     def operation_select_default_query(self,index):
         self.select_block(Defaule_select_value_js)
@@ -89,7 +95,7 @@ class operation_page_function(Element):
     # 操作页面清空按钮
     def operation_clean_button(self):
         self.find_element_by_xpath(Clear_button_element).click()
-
+        return None
     #获取二级子级元素的数据，并通过下标去点击进行操作
     def operation_child_element(self,index):
         child_list_data = self.find_elements_class(Child_data_element)
@@ -104,7 +110,7 @@ class operation_page_function(Element):
 
     # 通过js属性操作下拉框是隐藏属性可见
     def select_block(self, js):
-        self.driver.execute_script(js)
+        return self.driver.execute_script(js)
 
     # 获取alert弹窗提示语
     def get_alter_text(self):
@@ -116,19 +122,15 @@ class operation_page_function(Element):
         # 由于文本框存在多个值需将错误提示语封装到list
         list_error = []
         error_text = self.find_elements_class(Tips_element)
-        for text in range(len(error_text)):
-            list_error.append(error_text[text].text)
+        [list_error.append(error_text[i].text) for i in range(len(error_text))]
         return list_error
     # 操作下拉框获取下拉框中值,通过传入的下标，选择值
     def get_select_data(self,index):
         select_list = []
         # 点击下拉框
         self.find_element_class(Select_element).click()
-        time.sleep(1)
         select_value = self.find_elements_class(Select_value_element)
-
-        for i in range(len(select_value)):
-            select_list.append(select_value[i].text)
+        [select_list.append(select_value[i].text) for i in range(len(select_value))]
         return select_list[index]
 
     # 获取左侧菜单栏数据
@@ -136,7 +138,19 @@ class operation_page_function(Element):
         tree_data = self.find_elements_by_xpath(Menu_tree_element)
         return tree_data
 
+    #操作二次弹窗确认按钮
+    def operation_second_sure_button(self,index):
+        #index,根据当前元素实际的下标进行传入
+        value = self.find_elements_by_xpath(SECOND_ALTER_SURE_ELEMENNT)
+        value[index].click()
+        return None
 
+    #操作二次弹窗取消按钮
+    def operation_second_cancle_button(self,index):
+        # index,根据当前元素实际的下标进行传入
+        value = self.find_elements_by_xpath(SECOND_ALTER_CANCEL_ELEMENT)
+        value[index].click()
+        return None
 
     # 获取查询结果页面返回的数量值
     def get_query_data_total(self):
@@ -149,6 +163,7 @@ class operation_page_function(Element):
     #操作页面导入按钮
     def operation_import_button(self,file_path):
         self.find_element_by_xpath(IMPORT_BUTTON).send_keys( file_path)
+        return None
 
 
 if __name__ == '__main__':

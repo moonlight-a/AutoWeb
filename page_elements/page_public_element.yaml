@@ -5,8 +5,6 @@ menu_tree_element: "//ul[(@class='ivu-menu ivu-menu-dark ivu-menu-vertical' or (
 #新建
 Add_button_element: "//span[contains(text(),\"新建\")]"
 
-#下载导入模版
-Download_button_element: "//span[contains(text(),\"下载导入模版\")]"
 #查询按钮
 Search_button_element: "//span[contains(text(),\"查询\")]"
 #清空按钮
@@ -31,7 +29,20 @@ Search_Job_number_element: "//input[@placeholder=\"请输入工号\"]"
 Search_Phone_element: "//input[@placeholder=\"请输入手机号\"]"
 #导入按钮
 Import_button_element: "//input[@type='file']"
+#下载导入模板按钮
+Download_button_element: "//span[contains(text(),\"下载导入模板\")]"
+
+#二次弹窗确认窗口--确认
+
+Second_alter_sure: "//button[@class='dialog white ivu-btn ivu-btn-default']"
+#二次弹窗确认窗口--取消
+Second_alter_cancel: "//button[@class='dialog grey ivu-btn ivu-btn-default']"
+
+#操作页面鼠标悬浮隐藏的数据
+Select_dropdown: "document.getElementsByClassName('ivu-select-dropdown')[0].style.display='block';"
 #可进行检索查询的下拉框
 Name_select_js: "document.querySelector('.ivu-select-input').click()"
 #存在默认值的下拉框
 Defaule_select_value_js: "document.querySelector('.ivu-select-selected-value').click()"
+
+

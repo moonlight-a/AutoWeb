@@ -46,3 +46,8 @@ Organization_details_element: "//li[@class='ivu-dropdown-item' and contains(text
 Delete_organization_element: "//li[@class='ivu-dropdown-item' and contains(text(),\"删除\")]"
 #编辑子组织数据
 Edit_organization_element: "//li[@class='ivu-dropdown-item' and contains(text(),\"编辑\")]"
+
+#添加组织左侧树元素
+LeftTree_organization_element: "leftTree,organization-menu"
+#添加组织左侧树下拉框隐藏元素
+Hide_data_element: "ivu-dropdown-item"
